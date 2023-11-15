@@ -42,6 +42,6 @@ switch (rusWord.ToLower())
         Console.WriteLine("hail");
         break;
     default:
-        Console.WriteLine("Переводчик не знает такого слова");
+        Console.WriteLine("Переводчик не знает такого слова =(");
         break;
 }
