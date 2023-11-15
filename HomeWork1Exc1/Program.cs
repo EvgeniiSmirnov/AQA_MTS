@@ -42,14 +42,13 @@ do
         Console.WriteLine(answerForm + (firstNum + secondNum)); flag = true; break;
     case '-':
         Console.WriteLine(answerForm + (firstNum - secondNum)); flag = true; break;
-        case '*':
+    case '*':
         Console.WriteLine(answerForm + firstNum * secondNum); flag = true; break;
-        case '/':
+    case '/':
         Console.WriteLine(answerForm + firstNum / secondNum); flag = true; break;
-        default:
+    default:
         Console.WriteLine("Введён неизвестный символ. Введите символ операции ещё раз (+, -, *, /):");
-            operation = Convert.ToChar(Console.ReadLine());
-            flag = false;
-    break;
+        operation = Convert.ToChar(Console.ReadLine());
+        flag = false; break;
     }
 } while (flag == false);
