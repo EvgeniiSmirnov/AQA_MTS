@@ -24,7 +24,7 @@ do
     secondNum = Convert.ToDouble(Console.ReadLine());
     if (secondNum == 0)
     {
-            Console.WriteLine("Второе число равно нулю. Введите другое число");
+        Console.WriteLine("Второе число равно нулю. Введите другое число");
         flag = false;
     }
     else
@@ -38,18 +38,17 @@ do
 {
     switch (operation)
     {
-    case '+':
-        Console.WriteLine(answerForm + (firstNum + secondNum)); flag = true; break;
-    case '-':
-        Console.WriteLine(answerForm + (firstNum - secondNum)); flag = true; break;
-    case '*':
-        Console.WriteLine(answerForm + firstNum * secondNum); flag = true; break;
-    case '/':
-        Console.WriteLine(answerForm + firstNum / secondNum); flag = true; break;
-    default:
-        Console.WriteLine("Введён неизвестный символ. Введите символ операции ещё раз (+, -, *, /):");
-        operation = Convert.ToChar(Console.ReadLine());
-        flag = false; break;
+        case '+':
+            Console.WriteLine(answerForm + (firstNum + secondNum)); flag = true; break;
+        case '-':
+            Console.WriteLine(answerForm + (firstNum - secondNum)); flag = true; break;
+        case '*':
+            Console.WriteLine(answerForm + firstNum * secondNum); flag = true; break;
+        case '/':
+            Console.WriteLine(answerForm + firstNum / secondNum); flag = true; break;
+        default:
+            Console.WriteLine("Введён неизвестный символ. Введите символ операции ещё раз (+, -, *, /):");
+            operation = Convert.ToChar(Console.ReadLine());
+            flag = false; break;
     }
 } while (flag == false);
-//
