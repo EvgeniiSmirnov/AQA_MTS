@@ -19,13 +19,15 @@ namespace Homework2Exc1
                 array[i] = rnd.Next(51); //помещаем в массив случайное число от 0 до 50
             }
 
-            // Расскомментировать, чтобы посмотреть созданный массив
-            //foreach (int i in array)
-            //{
-            //    Console.Write(i + "\t");
-            //}
+            // В услувии задачи не трубуется выводить изначальный массив, но вывожу для наглядности
+            foreach (int i in array)
+            {
+                Console.Write(i + " ");
 
-            Console.WriteLine("Введите число:");
+            }
+
+            // Запрашиваем число из консоли
+            Console.WriteLine("\nВведите число:");
             int userNumber = Convert.ToInt32(Console.ReadLine());
 
             // Проверяем элементы массива и выводим сообщение
