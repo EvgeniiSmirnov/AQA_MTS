@@ -16,14 +16,13 @@ namespace Homework2Exc1
             Random rnd = new();
             for (int i = 0; i < 10; i++)
             {
-                array[i] = rnd.Next(51); //помещаем в массив случайное число от 0 до 50
+                array[i] = rnd.Next(51); // инициализируем элементы массива числами от 0 до 50
             }
 
             // В услувии задачи не трубуется выводить изначальный массив, но вывожу для наглядности
             foreach (int i in array)
             {
                 Console.Write(i + " ");
-
             }
 
             // Запрашиваем число из консоли
@@ -32,7 +31,6 @@ namespace Homework2Exc1
 
             // Проверяем элементы массива и выводим сообщение
             Console.WriteLine($"Число '{userNumber}' " + (array.Contains(userNumber) ? "содержится" : "не содержится") + " в массиве");
-
         }
     }
 }
