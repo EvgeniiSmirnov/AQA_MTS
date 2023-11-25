@@ -15,6 +15,16 @@ namespace Homework2Exc5
         {
             Random rnd = new();
 
+            // метод для вывода элементов массива в консоль
+            void printArray(int[] array)
+            {
+                foreach (int i in array)
+                {
+                    Console.Write(i + "\t");
+                }
+                Console.WriteLine();
+            }
+
             // Запрашиваем размерность массива из консоли
             Console.WriteLine("Введите размер массива (5 < n <= 10)");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
@@ -44,11 +54,7 @@ namespace Homework2Exc5
             {
                 firstArray[i] = rnd.Next(101); // инициализируем элементы массива числами от 0 до 100
             }
-            foreach (int i in firstArray)
-            {
-                Console.Write(i + " ");
-            }
-            Console.WriteLine();
+            printArray(firstArray);
 
             // метод для проверки элементов массива на чётность
             bool isEven(int n)
@@ -66,10 +72,7 @@ namespace Homework2Exc5
             }
             else
             {
-                foreach (int i in secondArray)
-                {
-                    Console.Write(i + " ");
-                }
+                printArray(secondArray);
             }
         }
     }
