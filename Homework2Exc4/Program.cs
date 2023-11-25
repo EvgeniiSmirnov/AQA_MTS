@@ -10,11 +10,11 @@ namespace Homework2Exc4
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Random rnd = new();
 
-            // Созадём массивы
+            // Создаём массивы
             int[] firstArray = new int[5], secondArray = new int[5];
             for (int i = 0; i < 5; i++)
             {

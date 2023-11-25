@@ -14,14 +14,14 @@ namespace Homework2Exc3
         {
             // Запрашиваем число из консоли
             Console.WriteLine("Введите число (размер массива):");
-            int arrayRank = Convert.ToInt32(Console.ReadLine());
+            int arrayLength = Convert.ToInt32(Console.ReadLine());
 
             // Создаём массив
-            int[] array = new int[arrayRank];
+            int[] array = new int[arrayLength];
             Random rnd = new();
-            for (int i = 0; i < arrayRank; i++)
+            for (int i = 0; i < arrayLength; i++)
             {
-                array[i] = rnd.Next(arrayRank * 10); // инициализируем элементы массива случайными числами
+                array[i] = rnd.Next(arrayLength * 10); // инициализируем элементы массива случайными числами
             }
 
             // Выводим массив в консоль
@@ -36,7 +36,7 @@ namespace Homework2Exc3
                 Минимальное число в массиве: {array.Min()}
                 Максимальное число в массиве: {array.Max()}
                 Средний элемент в массиве: {array.Length / 2} 
-                Среднее значение числа в массиве: {array.Sum() / arrayRank}
+                Среднее значение числа в массиве: {array.Sum() / arrayLength}
                 """);// тут я не понял, нужен средний элемент, или среднее арифметическое, поэтому оба посчитал ヽ(°° )ノ
         }
     }
