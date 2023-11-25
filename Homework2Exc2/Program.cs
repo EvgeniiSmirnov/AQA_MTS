@@ -11,19 +11,17 @@ namespace Homework2Exc2
     {
         static void Main()
         {
+            Random rnd = new();
+
             // Создаём массив
             int[] array = new int[20];
-            Random rnd = new();
             for (int i = 0; i < 20; i++)
             {
                 array[i] = rnd.Next(51); // инициализируем элементы массива числами от 0 до 50
             }
 
-            // В услувии задачи не трубуется выводить изначальный массив, но вывожу для наглядности
-            foreach (int i in array)
-            {
-                Console.Write(i + " ");
-            }
+            // выводим массив в консоль для наглядности
+            PrintArray(array);
 
             // Запрашиваем число из консоли
             Console.WriteLine("\nВведите число:");
@@ -38,15 +36,21 @@ namespace Homework2Exc2
                 }
 
                 array = Array.FindAll(array, isUserNumber).ToArray();
-                foreach (int i in array)
-                {
-                    Console.Write(i + " ");
-                }
+                PrintArray(array);
             }
             else // если числа нет, то выводим об этом сообщение
             {
                 Console.Write($"Число '{userNumber}' не содержится в массиве");
             }
+        }
+        // Выводим массив в консоль
+        static void PrintArray(int[] array)
+        {
+            foreach (int i in array)
+            {
+                Console.Write(i + "\t");
+            }
+            Console.WriteLine();
         }
     }
 }

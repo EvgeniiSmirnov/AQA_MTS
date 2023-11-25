@@ -22,18 +22,8 @@ namespace Homework2Exc4
                 secondArray[i] = rnd.Next(101);
             }
 
-            // Выводим массивы в консоль
-            void printArray(int[] array)
-            {
-                foreach (int i in array)
-                {
-                    Console.Write(i + "\t");
-                }
-                Console.WriteLine();
-            }
-
-            printArray(firstArray);
-            printArray(secondArray);
+            PrintArray(firstArray);
+            PrintArray(secondArray);
 
             // Считаем и сравниваем среднее арифметеческое элементов массивов
             if ((firstArray.Sum() / 5) > (secondArray.Sum() / 5))
@@ -51,6 +41,15 @@ namespace Homework2Exc4
                 Console.WriteLine($"Средние арифметические у массивов равны " +
                     $" ({(firstArray.Sum() / 5)} = {(secondArray.Sum() / 5)})");
             }
+        }
+        // Выводим массивы в консоль
+        static void PrintArray(int[] array)
+        {
+            foreach (int i in array)
+            {
+                Console.Write(i + "\t");
+            }
+            Console.WriteLine();
         }
     }
 }

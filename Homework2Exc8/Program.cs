@@ -3,7 +3,7 @@
 Реализуйте алгоритм сортировки пузырьком.
 */
 
-namespace Homework2Exc7
+namespace Homework2Exc8
 {
     public class Program
     {
@@ -14,22 +14,12 @@ namespace Homework2Exc7
             int[] arrayToSort = new int[arrayLength];
             int tmp;
 
-            // метод для вывода элементов массива в консоль
-            void printArray(int[] array)
-            {
-                foreach (int i in array)
-                {
-                    Console.Write(i + "\t");
-                }
-                Console.WriteLine();
-            }
-
             // инициализируем элементы массива числами от -50 до 50
             for (int i = 0; i < arrayLength; i++)
             {
                 arrayToSort[i] = rnd.Next(-50, 50);
             }
-            printArray(arrayToSort);
+            PrintArray(arrayToSort);
 
             // сортируем элементы (самый большой должен уйти в конец)
             for (int i = 0; i < arrayToSort.Length; i++)            // левые элементы 
@@ -40,7 +30,16 @@ namespace Homework2Exc7
                         arrayToSort[i] = arrayToSort[j];
                         arrayToSort[j] = tmp;
                     }
-            printArray(arrayToSort);
+            PrintArray(arrayToSort);
+        }
+        // метод для вывода элементов массива в консоль
+        static void PrintArray(int[] array)
+        {
+            foreach (int i in array)
+            {
+                Console.Write(i + "\t");
+            }
+            Console.WriteLine();
         }
     }
 }

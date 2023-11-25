@@ -12,19 +12,19 @@ namespace Homework2Exc7
         {
             string[] nameArray = { "Sam", "Bob", "Maria", "Kelly", "Ann", "Adam" };
 
-            // метод для вывода элементов массива в консоль
-            void printArray(string[] array)
-            {
-                foreach (string i in array)
-                {
-                    Console.Write(i + "\t");
-                }
-                Console.WriteLine();
-            }
-
-            printArray(nameArray);
+            PrintArray(nameArray);
             Array.Sort(nameArray); // сортируем элементы
-            printArray(nameArray);
+            PrintArray(nameArray);
+        }
+
+        // метод для вывода элементов массива в консоль
+        static void PrintArray(string[] array)
+        {
+            foreach (string i in array)
+            {
+                Console.Write(i + "\t");
+            }
+            Console.WriteLine();
         }
     }
 }

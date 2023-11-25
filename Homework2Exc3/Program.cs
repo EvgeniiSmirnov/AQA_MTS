@@ -12,13 +12,14 @@ namespace Homework2Exc3
     {
         static void Main()
         {
+            Random rnd = new();
+
             // Запрашиваем число из консоли
             Console.WriteLine("Введите число (размер массива):");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
 
             // Создаём массив
             int[] array = new int[arrayLength];
-            Random rnd = new();
             for (int i = 0; i < arrayLength; i++)
             {
                 array[i] = rnd.Next(arrayLength * 10); // инициализируем элементы массива случайными числами
