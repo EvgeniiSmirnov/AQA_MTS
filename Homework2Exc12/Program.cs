@@ -39,7 +39,6 @@ namespace Homework2Exc12
                             int tmp = array[i, t];
                             array[i, t] = array[i, t + 1];
                             array[i, t + 1] = tmp;
-
                         }
                     }
                 }
