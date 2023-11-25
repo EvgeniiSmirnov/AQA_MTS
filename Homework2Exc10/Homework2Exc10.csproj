@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Homework2Exc10\Homework2Exc10.csproj" />
+    <ProjectReference Include="..\Homework2Exc2\Homework2Exc2.csproj" />
   </ItemGroup>
 
 </Project>
