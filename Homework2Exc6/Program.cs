@@ -14,37 +14,31 @@ namespace Homework2Exc6
         {
             Random rnd = new();
             int arrayLength = rnd.Next(10, 20); // произвольная длина массива в промежутке от 10 до 20
+            int[] firstArray = new int[arrayLength];
 
-            int[] firstArray = new int[arrayLength], secondArray = new int[arrayLength];
+            // метод для вывода элементов массива в консоль
+            void printArray(int[] array)
+            {
+                foreach (int i in array)
+                {
+                    Console.Write(i + "\t");
+                }
+                Console.WriteLine();
+            }
 
-            // первый массив
+            // инициализируем элементы массива числами от 0 до 100
             for (int i = 0; i < arrayLength; i++)
             {
-                firstArray[i] = rnd.Next(101); // инициализируем элементы массива числами от 0 до 100
+                firstArray[i] = rnd.Next(101);
             }
-            foreach (int i in firstArray)
-            {
-                Console.Write(i + "\t");
-            }
-            Console.WriteLine();
+            printArray(firstArray);
 
-            // второй массив
-            for (int i = 0; i < arrayLength; i++)
+            // нечётные индексы инициализируем нулями
+            for (int i = 1; i < arrayLength; i += 2)
             {
-                // нечётные элементы инициализируем нулями, остальные значениями первого массива
-                if (i % 2 != 0)
-                {
-                    secondArray[i] = 0;
-                }
-                else
-                {
-                    secondArray[i] = firstArray[i];
-                }
+                firstArray[i] = 0;
             }
-            foreach (int i in secondArray)
-            {
-                Console.Write(i + "\t");
-            }
+            printArray(firstArray);
         }
     }
 }
