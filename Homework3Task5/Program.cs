@@ -15,8 +15,6 @@
 которые на вход (входным параметром) будут принимать вводимую на вход программы строку.
 */
 using Methods;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Homework3Task5
 {
