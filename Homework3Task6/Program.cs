@@ -14,7 +14,7 @@ namespace Homework3Task6
         static void Main()
         {
             {
-                string text = "1. Some text with  some test    words. 2. There first test       word or what? 999.      Something   here too.";
+                string text = "1. Some      text  with  some test  words. 2.  There first test word";
                 Console.WriteLine("Текст до изменений:\n" + text);
 
                 string newText = Regex.Replace(text, @"\s+", " ");
