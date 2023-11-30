@@ -5,7 +5,7 @@ Welcome to the TMS lessons.
 Каждое слово должно быть записано отдельно и взято в кавычки, например "Welcome". Не забывайте о пробелах после каждого слова
 */
 
-namespace Homework3Exc2
+namespace Homework3Task2
 {
     public class Program
     {

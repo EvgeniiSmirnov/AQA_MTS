@@ -5,7 +5,7 @@
 Результат вывести в консоль.
 */
 
-namespace Homework3Exc2
+namespace Homework3Task3
 {
     public class Program
     {
