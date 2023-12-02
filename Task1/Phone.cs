@@ -25,13 +25,13 @@ public class Phone
     }
 
     // метод выводит на консоль сообщение “Звонит {name}”
-    public void receiveCall(string callerName) => Console.Write($"Звонит {callerName}");
+    public void ReceiveCall(string callerName) => Console.Write($"Звонит {callerName}");
 
     // метод возвращает номер телефона
-    public string getNumber() => number;
+    public string GetPhoneNumber() => number;
 
     // метод выводит на консоль номера телефоном которым будет отправлено сообщение
-    public void sendMessage(params string[] numbers)
+    public void SendMessage(params string[] numbers)
     {
         foreach (string number in numbers)
             Console.WriteLine($"Сообщение будет отправлено на номер {number}");

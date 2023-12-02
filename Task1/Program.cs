@@ -39,12 +39,12 @@ public class Programm
         // вызвать методы receiveCall и getNumber для каждого из объектов
         foreach (Phone phone in p)
         {
-            phone.receiveCall("Alex");
-            Console.Write($" с номера {phone.getNumber()}\n");
+            phone.ReceiveCall("Alex");
+            Console.Write($" с номера {phone.GetPhoneNumber()}\n");
         }
 
         // вызвать метод sendMessage с 2-мя и 5-ю номерами телефонов.
-        phone1.sendMessage("79851111111", "79852222222");
-        phone1.sendMessage("79851111111", "79852222222", "79853333333", "79854444444", "79855555555");
+        phone1.SendMessage("79851111111", "79852222222");
+        phone1.SendMessage("79851111111", "79852222222", "79853333333", "79854444444", "79855555555");
     }
 }
