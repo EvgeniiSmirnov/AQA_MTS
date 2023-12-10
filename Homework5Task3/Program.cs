@@ -30,9 +30,6 @@ public class Programm
 {
     static void Main()
     {
-
-        Trolleybus trolleybus = new Trolleybus("Проспект Космонавтов", 12, new DateTime(2023, 12, 12, 12, 00, 00), 35);
-        trolleybus.DestroyTransport();
         // объявлен объект класса Bus. Вывести все данные (значения полей) объекта в консоль.
         Transport bus = new Bus("Екатеринбург", 10, new DateTime(2023, 10, 10, 10, 00, 00), 25);
         bus.PrintTransportInfo();

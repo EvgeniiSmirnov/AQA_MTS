@@ -25,9 +25,4 @@ public class Trolleybus : PublicTransport
     {
         return "Электрический";
     }
-
-    public void DestroyTransport()
-    {
-        Console.WriteLine("Транспорт уничтожен!!");
-    }
 }
