@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "TypesAndOpera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework7Task1", "Homework7Task1\Homework7Task1.csproj", "{F66DCF6B-42E8-42A7-9188-00074B29F704}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework7Task2", "Homework7Task2\Homework7Task2.csproj", "{51CA49A8-DE26-4568-958D-66F752799BAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F66DCF6B-42E8-42A7-9188-00074B29F704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F66DCF6B-42E8-42A7-9188-00074B29F704}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F66DCF6B-42E8-42A7-9188-00074B29F704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51CA49A8-DE26-4568-958D-66F752799BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51CA49A8-DE26-4568-958D-66F752799BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51CA49A8-DE26-4568-958D-66F752799BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51CA49A8-DE26-4568-958D-66F752799BAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
