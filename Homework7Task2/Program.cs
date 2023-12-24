@@ -8,3 +8,38 @@
 - Недостаточные данные для доставки: Если данные для доставки отсутствуют (например, пустой адрес),
 программа должна генерировать пользовательское исключение DeliveryInformationMissingException.
 */
+using System.Collections;
+
+namespace Homework7Task2;
+public class Program
+{
+    public static void Main()
+    {
+
+        // для проверки отработки исключений создадим массив заказов
+        ArrayList goodsList = new() { "Хлеб", "Молоко" };
+        Order[] orders =
+        {
+            new Order(-10, goodsList, "Санкт-Петербург, Колхозная 10"),
+            new Order(new Random().Next(100), goodsList, ""),
+            new Order(new Random().Next(100), goodsList, "Санкт-Петербург, Колхозная 10"),
+            new Order(new Random().Next(100), goodsList, "Санкт-Петербург, Колхозная 10")
+        };
+
+        // проверим заказы
+        for (int i = 0; i < orders.Length; i++)
+        {
+            Console.Write($"Test {i}: ");
+            if (i == 3) { goodsList.Clear(); } // для проверки на пустой список заказов
+            if (orders[i].OrderCheck())
+            {
+                Console.WriteLine("Заказ корректен");
+            }
+            else
+            {
+                Console.WriteLine("Заказ не корректен");
+            }
+            Console.WriteLine();
+        }
+    }
+}
