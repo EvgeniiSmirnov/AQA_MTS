@@ -2,26 +2,11 @@
 
 internal class Book
 {
-    string bookTitle = "";
-    string author = "";
-    int yearOfPublication = 0;
-    public string BookTitle
-    {
-        get => bookTitle;
-        private set => bookTitle = value;
-    }
+    public string BookTitle { get; private set; }
 
-    public string Author
-    {
-        get => author;
-        private set => author = value;
-    }
+    public string Author { get; private set; }
 
-    public int YearOfPublication
-    {
-        get => yearOfPublication;
-        private set => yearOfPublication = value;
-    }
+    public int YearOfPublication { get; private set; }
 
     public Book(string bookTitle, string author, int yearOfPublication)
     {
