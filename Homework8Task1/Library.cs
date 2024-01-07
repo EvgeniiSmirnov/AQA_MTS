@@ -25,9 +25,9 @@ internal class Library
         {
             Console.WriteLine($"""
                ---
-               {e.GetBookTitle()}
-               {e.GetAuthor()}
-               {e.GetYearOfPublication()}
+               {e.BookTitle}
+               {e.Author}
+               {e.YearOfPublication}
                """);
         }
     }
@@ -40,13 +40,13 @@ internal class Library
         int count = 0;
         foreach (Book e in bookList)
         {
-            if (e.GetAuthor().Equals(author))
+            if (e.Author.Equals(author))
             {
                 Console.WriteLine($"""
                ---
-               {e.GetBookTitle()}
-               {e.GetAuthor()}
-               {e.GetYearOfPublication()}
+               {e.BookTitle}
+               {e.Author}
+               {e.YearOfPublication}
                """);
             }
             else count++;
