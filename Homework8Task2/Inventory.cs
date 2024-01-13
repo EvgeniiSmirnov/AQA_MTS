@@ -28,6 +28,23 @@ internal class Inventory
     }
 
     /// <summary>
+    /// Метод отображает список товаров в каталоге
+    /// </summary>
+    public void PrintGoodsListInfo()
+    {
+        Console.WriteLine("Список товаров в каталоге:");
+        foreach (Goods e in goodsList.Values)
+        {
+            Console.WriteLine($"""
+               ---
+               Название: {e.Name}
+               Цена: {e.Price}
+               Количество: {e.Amount}
+               """);
+        }
+    }
+
+    /// <summary>
     /// Поиск товара по идентификатору.
     /// </summary>
     public void FindGoodById()
@@ -46,23 +63,6 @@ internal class Inventory
                """);
         }
         else Console.WriteLine("По заданному ID товар не найден");
-    }
-
-    /// <summary>
-    /// Метод отображает список товаров в каталоге
-    /// </summary>
-    public void PrintGoodsListInfo()
-    {
-        Console.WriteLine("Список товаров в каталоге:");
-        foreach (Goods e in goodsList.Values)
-        {
-            Console.WriteLine($"""
-               ---
-               Название: {e.Name}
-               Цена: {e.Price}
-               Количество: {e.Amount}
-               """);
-        }
     }
 
     // Вспомогательный метод. Выводит список товаров в инвентаре вместе с их ID
@@ -139,7 +139,7 @@ internal class Inventory
     }
 
     /// <summary>
-    /// Метод для удаления товара из инвенторя
+    /// Метод для удаления товара из инвентаря
     /// </summary>
     public void DeleteGood()
     {
