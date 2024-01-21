@@ -10,10 +10,7 @@ internal class Calendar
     /// Метод добавляет событие в массив событий (календарь)
     /// </summary>
     /// <param name="e"></param>
-    public void AddEvent(Event e)
-    {
-        EventsList.Add(e);
-    }
+    public void AddEvent(Event e) => EventsList.Add(e);
 
     /// <summary>
     /// Метод выбирает события для текущей даты
