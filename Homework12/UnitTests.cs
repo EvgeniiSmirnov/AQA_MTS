@@ -38,7 +38,7 @@ public class Tests
     [Order(7), Category("Integer"), Category("Alternative")]
     public int TestIgnoreAttribute(int x, int y) => Calculator.Divide(x, y);
 
-    // тесты для использования атрибута TestCase
+    // тесты с использованием атрибута TestCase
     [Test(Description = "Проверка деления целого числа на целое число 2")]
     [Order(8), Severity(Severity.High), Category("Integer"), Category("Positive")]
     [TestCase(7, 7, 1)]
