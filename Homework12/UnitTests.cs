@@ -1,11 +1,8 @@
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Drawing;
-
-namespace Homework12;
+﻿namespace Homework12;
 
 public class Tests
 {
-    [Test(Description = "Checking the division of an integer by an integer")]
+    [Test(Description = "Проверка the division of an integer by an integer")]
     [Order(1), Severity(Severity.High), Category("Integer"), Category("Positive")]
     [TestCaseSource(typeof(TestData), nameof(TestData.ItegerDivideCases))]
     public void TestDivideIntegersFunction(int firstNum, int secondNum, int result) =>
