@@ -19,9 +19,14 @@ class Programm
                 "F"
             ];
 
-        var sortedStringList = stringList.OrderBy(s => s.Length).ThenByDescending(s => s);
+        // сортируем по возрастанию, а одинаковые сортируем по убыванию
+        var sortedStringList =
+             (from str in stringList
+             orderby str.Length
+             select str).ThenByDescending(s => s);
 
         // вывод элементов в консоль
-        foreach (var num in sortedStringList) Console.Write($"{num} ");
+        foreach (var str in sortedStringList) Console.Write($"{str} ");
+        Console.WriteLine();
     }
 }

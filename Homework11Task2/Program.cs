@@ -23,15 +23,13 @@ class Programm
                 new Client(4, 2023, 7, 20)
             ];
 
-        var lastMinimalTrainingHours = clientList.OrderByDescending(c => c.TrainingHours).Last();
+        // сортируем выборку по убыванию и берём последнее значение
+        var lastMinimalTrainingHours =
+            (from client in clientList
+            orderby client.TrainingHours descending
+            select client).Last();
 
-        Console.WriteLine($"Продолжительность занятий (в часах): {lastMinimalTrainingHours.TrainingHours}, год: {lastMinimalTrainingHours.Year}, номер месяца: {lastMinimalTrainingHours.Month}");
-
-        //var clientQuery =
-        //    (from client in clientList
-        //    group client by client.TrainingHours into result
-        //    orderby result.Key descending
-        //    select new { TrainingHours = result.Key }).Last();
-        //Console.WriteLine(clientQuery.TrainingHours);
+        // вывод элементов выборки в консоль
+        Console.Write($"Продолжительность занятий (в часах): {lastMinimalTrainingHours.TrainingHours}, год: {lastMinimalTrainingHours.Year}, номер месяца: {lastMinimalTrainingHours.Month}");
     }
 }
