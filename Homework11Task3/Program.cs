@@ -22,11 +22,10 @@ class Programm
         // сортируем по возрастанию, а одинаковые сортируем по убыванию
         var sortedStringList =
              (from str in stringList
-             orderby str.Length
-             select str).ThenByDescending(s => s);
+              orderby str.Length
+              select str).ThenByDescending(s => s);
 
         // вывод элементов в консоль
         foreach (var str in sortedStringList) Console.Write($"{str} ");
-        Console.WriteLine();
     }
 }

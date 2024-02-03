@@ -6,6 +6,8 @@
 Необходимо, посчитать общую сумму зарплат по специальностям.
 */
 
+using Homework11Task4;
+
 class Programm
 {
     public static void Main()
@@ -30,6 +32,7 @@ class Programm
         new SalaryRate("Быстрова", 110000)
     ];
 
+        // объединяем по ключю фамилии, группируем по позиции, пересобираем выборку с суммированием зп
         var salarySumByPosition =
             from person in personPositionList
             join salary in salaryRateList on person.Surname equals salary.Surname
@@ -39,16 +42,4 @@ class Programm
         // вывод элементов выборки в консоль
         foreach (var i in salarySumByPosition) Console.WriteLine($"{i.Position} {i.Salary}");
     }
-}
-
-class PersonPosition(string surname, string position)
-{
-    public string Surname { get; set; } = surname;
-    public string Position { get; set; } = position;
-}
-
-class SalaryRate(string surname, int salary)
-{
-    public string Surname { get; set; } = surname;
-    public int Salary { get; set; } = salary;
 }

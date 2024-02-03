@@ -26,8 +26,8 @@ class Programm
         // сортируем выборку по убыванию и берём последнее значение
         var lastMinimalTrainingHours =
             (from client in clientList
-            orderby client.TrainingHours descending
-            select client).Last();
+             orderby client.TrainingHours descending
+             select client).Last();
 
         // вывод элементов выборки в консоль
         Console.Write($"Продолжительность занятий (в часах): {lastMinimalTrainingHours.TrainingHours}, год: {lastMinimalTrainingHours.Year}, номер месяца: {lastMinimalTrainingHours.Month}");

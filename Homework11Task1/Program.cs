@@ -12,10 +12,10 @@ class Program
         int[] numbers = { 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 5 };
 
         // выборка уникальных нечётных чисел в порядке следования
-        var numQuery = 
+        var numQuery =
             (from num in numbers
-            where num % 2 != 0
-            select num).Distinct();
+             where num % 2 != 0
+             select num).Distinct();
 
         // вывод элементов выборки в консоль
         foreach (var num in numQuery) Console.Write($"{num} ");
