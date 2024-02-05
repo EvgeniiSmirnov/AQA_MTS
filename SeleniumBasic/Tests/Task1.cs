@@ -1,9 +1,13 @@
-﻿using OpenQA.Selenium;
+﻿/*Задание 1:
+Закончить тест на проверку СКФ (https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148 ).
+В рамках теста проверить рассчитанные результаты
+*/
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumBasic.Tests;
 
-internal class Task1 : BaseTest
+class Task1 : BaseTest
 {
     [Test]
     public void ValidateSKF()
