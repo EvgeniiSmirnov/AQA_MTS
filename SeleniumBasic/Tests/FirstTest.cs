@@ -37,7 +37,8 @@ public class FirstTest : BaseTest
     public void ValidateSKF()
     {
         Driver.Navigate().GoToUrl("https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148");
-        Driver.SwitchTo().Frame(1);
+        //Driver.SwitchTo().Frame(1);
+        Driver.SwitchTo().Frame(Driver.FindElement(By.XPath("//iframe[@src]")));
 
         IWebElement selectWebElement = Driver.FindElement(By.Id("cr-size"));
         SelectElement selectSex = new SelectElement(selectWebElement);
