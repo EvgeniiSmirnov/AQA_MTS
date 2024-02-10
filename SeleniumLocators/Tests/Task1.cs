@@ -1,7 +1,13 @@
-﻿/*Задание 1: Добавить тест для страницы Context Menu
-Правый клик по элементу
-Валидация текста на алерте
-Закрытие алерта
+﻿/*Задание 2: Добавить тест для страницы Dynamic Controls
+Нажать на кнопку Remove около чекбокса
+Дождаться надписи “It’s gone”
+Проверить, что чекбокса нет
+Найти инпут
+Проверить, что он disabled
+Нажать на кнопку
+Дождаться надписи “It's enabled!”
+Проверить, что инпут enabled
+
 */
 
 using OpenQA.Selenium;
@@ -11,7 +17,7 @@ namespace SeleniumAdvanced.Tests;
 
 class Task1 : BaseTest
 {
-    [Test]
+    [Test(Description = "Task 1 (Context Menu)")]
     public void ContextMenuTest()
     {
         // переходим на страницу Context Menu по линкклику 
@@ -29,7 +35,11 @@ class Task1 : BaseTest
 
         Assert.That(alert.Text, Is.EqualTo("You selected a context menu"));
         alert.Accept();
+    }
 
-        Thread.Sleep(3000);
+    [Test(Description = "Task 2 (Dynamic Controls)")]
+    public void DynamicControlsTest()
+    {
+
     }
 }
