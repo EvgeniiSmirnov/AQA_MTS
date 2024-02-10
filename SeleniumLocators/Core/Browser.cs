@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using SeleniumLocators.Helpers.Configuration;
+using SeleniumAdvanced.Helpers.Configuration;
 
-namespace SeleniumLocators.Core;
+namespace SeleniumAdvanced.Core;
 
 public class Browser
 {
@@ -9,12 +9,8 @@ public class Browser
 
     public Browser()
     {
-        Driver = Configurator.BrowserType?.ToLower() switch
-        {
-            "chrome" => new DriverFactory().GetChromeDriver(),
-            "firefox" => new DriverFactory().GetFirefoxDriver(),
-            _ => Driver
-        } ?? throw new InvalidOperationException("Browser is not supported.");
+        Driver = new DriverFactory().GetChromeDriver()
+            ?? throw new InvalidOperationException("Browser is not supported.");
 
         Driver.Manage().Window.Maximize();
         Driver.Manage().Cookies.DeleteAllCookies();

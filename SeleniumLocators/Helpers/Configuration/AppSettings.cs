@@ -1,4 +1,4 @@
-namespace SeleniumLocators.Helpers.Configuration;
+namespace SeleniumAdvanced.Helpers.Configuration;
 
 public class AppSettings
 {
