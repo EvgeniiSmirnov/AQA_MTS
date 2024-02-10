@@ -8,15 +8,13 @@ public class SauceDemoTest : BaseTest
     [Test]
     public void LocatorsBaseTest()
     {
-        Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
-
         Assert.Multiple(() =>
         {
             // id name classname tagname 
             Assert.That(Driver.FindElement(By.ClassName("login_logo")).Displayed);
             Assert.That(Driver.FindElement(By.Id("user-name")).Displayed);
             Assert.That(Driver.FindElement(By.Name("password")).Displayed);
-            Assert.That(Driver.FindElements(By.TagName("h4")).Count == 2 );
+            Assert.That(Driver.FindElements(By.TagName("h4")).Count == 2);
 
             // linktext partiallinktext
             Driver.FindElement(By.Id("user-name")).SendKeys(Configurator.AppSettings.Username);
@@ -31,8 +29,6 @@ public class SauceDemoTest : BaseTest
     [Test]
     public void LocatorsXPathTest()
     {
-        Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
-
         Assert.Multiple(() =>
         {
             Assert.That(Driver.FindElement(By.XPath("//input[@id='user-name']")).Displayed);
@@ -51,8 +47,6 @@ public class SauceDemoTest : BaseTest
     [Test]
     public void LocatorsSCCTest()
     {
-        Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
-
         Assert.Multiple(() =>
         {
             Assert.That(Driver.FindElement(By.CssSelector(".submit-button")).Displayed);

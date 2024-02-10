@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using SauceDemo.Core;
+using SauceDemo.Helpers.Configuration;
 
 namespace SauceDemo.Tests;
 
@@ -13,6 +14,7 @@ public class BaseTest
     public void Setup()
     {
         Driver = new Browser().Driver;
+        Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
     }
 
     [TearDown]
