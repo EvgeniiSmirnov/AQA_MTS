@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SeleniumAdvanced.Helpers.Configuration;
 
 namespace SeleniumAdvanced.Core;
 
