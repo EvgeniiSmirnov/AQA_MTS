@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.Net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
