@@ -1,12 +1,6 @@
-﻿/*Задание 2: Добавить тест для страницы Dynamic Controls
-Нажать на кнопку Remove около чекбокса
-Дождаться надписи “It’s gone”
-Проверить, что чекбокса нет
-Найти инпут
-Проверить, что он disabled
-Нажать на кнопку
-Дождаться надписи “It's enabled!”
-Проверить, что инпут enabled
+﻿/*Задание 3: Добавить тест для страницы File Upload
+Загрузить файл
+Проверить, что имя файла на странице совпадает с именем загруженного файла
 
 */
 
@@ -15,7 +9,7 @@ using OpenQA.Selenium.Interactions;
 
 namespace SeleniumAdvanced.Tests;
 
-class Task1 : BaseTest
+class HomeworkTests : BaseTest
 {
     [Test(Description = "Task 1 (Context Menu)")]
     public void ContextMenuTest()
@@ -63,5 +57,11 @@ class Task1 : BaseTest
             // проверяем что input enabled
             Assert.That(input.Enabled);
         });
+    }
+
+    [Test(Description = "Task 3 (File Upload)")]
+    public void FileUploadTest()
+    {
+
     }
 }
