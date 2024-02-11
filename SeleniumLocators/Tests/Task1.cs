@@ -40,6 +40,28 @@ class Task1 : BaseTest
     [Test(Description = "Task 2 (Dynamic Controls)")]
     public void DynamicControlsTest()
     {
+        // переходим на страницу Context Menu по линкклику 
+        WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText("Dynamic Controls")).Click();
 
+        var checkBox = WaitsHelper.WaitForVisibilityLocatedBy(By.CssSelector("input[type='checkbox']"));
+        var input = WaitsHelper.WaitForVisibilityLocatedBy(By.CssSelector("input[type='text']"));
+
+        Assert.Multiple(() =>
+        {
+            // клик кнопку Remove
+            WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@onclick='swapCheckbox()' and text()='Remove']")).Click();
+            // проверяем появление надписи It's gone!
+            Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("message")).Text, Is.EqualTo("It's gone!"));
+            // проверяем что чекбокс не виден
+            Assert.That(WaitsHelper.WaitForElementInvisible(checkBox));
+            // проверяем что input disabled
+            Assert.That(input.Enabled, Is.False);
+            // клик кнопку Enable
+            WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@onclick='swapInput()' and text()='Enable']")).Click();
+            // проверяем появление надписи It's gone!
+            Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("message")).Text, Is.EqualTo("It's enabled!"));
+            // проверяем что input enabled
+            Assert.That(input.Enabled);
+        });
     }
 }
