@@ -14,7 +14,7 @@ public class DriverFactory
     public IWebDriver? GetChromeDriver()
     {
         var chromeOptions = new ChromeOptions();
-       // chromeOptions.AddArguments("--incognito");
+        //chromeOptions.AddArguments("--incognito");
         chromeOptions.AddArguments("--disable-gpu");
         chromeOptions.AddArguments("--disable-extensions");
         //chromeOptions.AddArguments("--headless");
