@@ -1,7 +1,6 @@
-﻿/*Задание 3: Добавить тест для страницы File Upload
-Загрузить файл
-Проверить, что имя файла на странице совпадает с именем загруженного файла
-
+﻿/*Задание 4: Добавить тест для страницы Frames
+Открыть iFrame
+Проверить, что текст внутри параграфа равен “Your content goes here.”
 */
 
 using OpenQA.Selenium;
@@ -78,5 +77,18 @@ class HomeworkTests : BaseTest
 
         // проверяем, что файл загружем
         Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("uploaded-files")).Text, Is.EqualTo(fileName));
+    }
+
+    [Test(Description = "Task 4 (Frames)")]
+    public void FramesTest()
+    {
+        // переходим на страницу Frames по линкклику 
+        WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText("Frames")).Click();
+        // переходим на страницу iFrame по линкклику 
+        WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText("iFrame")).Click();
+
+        // переходим по дому в нужный фрейм и проверяем текст внутри Р
+        Driver.SwitchTo().Frame(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("mce_0_ifr")));
+        Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@id='tinymce']/p")).Text, Is.EqualTo("Your content goes here."));
     }
 }
