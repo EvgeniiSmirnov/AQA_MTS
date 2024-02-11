@@ -1,10 +1,6 @@
-﻿/*Задание 4: Добавить тест для страницы Frames
-Открыть iFrame
-Проверить, что текст внутри параграфа равен “Your content goes here.”
-*/
-
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using SeleniumAdvanced.Core;
 using System.Reflection;
 
 namespace SeleniumAdvanced.Tests;
@@ -90,5 +86,24 @@ class HomeworkTests : BaseTest
         // переходим по дому в нужный фрейм и проверяем текст внутри Р
         Driver.SwitchTo().Frame(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("mce_0_ifr")));
         Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@id='tinymce']/p")).Text, Is.EqualTo("Your content goes here."));
+    }
+
+    [Test(Description = "Task 5 (File Download)")]
+    public void FileDownloadTest()
+    {
+        var fileName = "some-file.txt";
+        var filePath = Path.Combine(DriverFactory.FileDownloadPath, fileName);
+
+        // переходим на страницу Frames по линкклику 
+        WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText("File Download")).Click();
+
+        // кликаем по линку загрузки файла 
+        WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText(fileName)).Click();
+
+        // проверяем, что файл появился в системе
+        Assert.That(WaitsHelper.WaitForExistFile(filePath, TimeSpan.FromSeconds(5)));
+
+        // удаляем файл
+        File.Delete(filePath);
     }
 }

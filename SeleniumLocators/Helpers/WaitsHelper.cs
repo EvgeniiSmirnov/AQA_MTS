@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -23,6 +24,21 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
     public IWebElement WaitForExists(By locator)
     {
         return _wait.Until(ExpectedConditions.ElementExists(locator));
+    }
+
+    public bool WaitForExistFile(string path, TimeSpan timeout)
+    {
+        int count = 0;
+
+        while (count <= 5)
+        {
+            if (File.Exists(path))
+                return true;
+
+            Thread.Sleep(timeout);
+            count++;
+        }
+        return false;
     }
 
     public bool WaitForElementInvisible(By locator)
