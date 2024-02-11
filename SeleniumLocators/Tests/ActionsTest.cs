@@ -34,7 +34,7 @@ public class ActionsTest : BaseTest
         string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         // Конструируем путь к файлу внутри проекта
-        string filePath = Path.Combine(assemblyPath, "Resources", "download.jpeg");
+        string filePath = Path.Combine(assemblyPath, "Resources", "123testFile.jpeg");
         Console.WriteLine(filePath);
         
         fileUploadPath.SendKeys(filePath);

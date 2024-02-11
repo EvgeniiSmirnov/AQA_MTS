@@ -6,6 +6,7 @@
 
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using System.Reflection;
 
 namespace SeleniumAdvanced.Tests;
 
@@ -62,6 +63,20 @@ class HomeworkTests : BaseTest
     [Test(Description = "Task 3 (File Upload)")]
     public void FileUploadTest()
     {
+        var fileName = "123testFile.jpeg";
 
+        // переходим на страницу File Upload по линкклику 
+        WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText("File Upload")).Click();
+
+        // ждём кнопку выбора файла, кликаем по ней и указываем путь к файлу внутри проекта  
+        WaitsHelper.WaitForExists(By.Id("file-upload")).
+            SendKeys(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+            "Resources", fileName));
+
+        // жмём кнопку Upload        
+        WaitsHelper.WaitForExists(By.Id("file-submit")).Submit();
+
+        // проверяем, что файл загружем
+        Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("uploaded-files")).Text, Is.EqualTo(fileName));
     }
 }
