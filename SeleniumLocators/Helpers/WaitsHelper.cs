@@ -29,14 +29,13 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
     {
         int count = 0;
 
-        while (count <= 5)
+        do
         {
-            if (File.Exists(path))
-                return true;
+            if (File.Exists(path)) return true;
 
             Thread.Sleep(timeout);
             count++;
-        }
+        } while (count < 5);
         return false;
     }
 
