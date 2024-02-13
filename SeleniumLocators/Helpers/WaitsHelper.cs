@@ -25,6 +25,24 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
         return _wait.Until(ExpectedConditions.ElementExists(locator));
     }
 
+    public bool WaitForExistFileOld(string path, TimeSpan timeout)
+    {
+        int count = 0;
+
+        do
+        {
+            if (File.Exists(path)) return true;
+
+            Thread.Sleep(timeout);
+            count++;
+        } while (count < 5);
+        return false;
+    }
+    public bool WaitForExistFileNew(string path)
+    {
+        return _wait.Until(d => File.Exists(path));
+    }
+
     public bool WaitForElementInvisible(By locator)
     {
         return _wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
