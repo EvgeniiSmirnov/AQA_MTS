@@ -45,7 +45,7 @@ class HomeworkTests : BaseTest
             // проверяем что чекбокс не виден
             Assert.That(WaitsHelper.WaitForElementInvisible(checkBox));
             // проверяем что input disabled
-            Assert.That(input.Enabled, Is.False);
+            Assert.That(!input.Enabled);
             // клик кнопку Enable
             WaitsHelper.WaitForVisibilityLocatedBy(By.XPath("//*[@onclick='swapInput()' and text()='Enable']")).Click();
             // проверяем появление надписи It's gone!
@@ -101,8 +101,8 @@ class HomeworkTests : BaseTest
         WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText(fileName)).Click();
 
         // проверяем, что файл появился в системе
-        Assert.That(WaitsHelper.WaitForExistFile(filePath, TimeSpan.FromSeconds(5)));
-
+        Assert.That(WaitsHelper.WaitForExistFileNew(filePath));
+        
         // удаляем файл
         File.Delete(filePath);
     }
