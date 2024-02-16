@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace SeleniumAdvanced.Helpers.Configuration;
+namespace PageObject.Helpers.Configuration;
 
 public static class Configurator
 {

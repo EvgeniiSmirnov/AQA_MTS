@@ -1,9 +1,8 @@
-using System.Collections.ObjectModel;
 using System.Reflection;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 
-namespace SeleniumAdvanced.Tests;
+namespace PageObject.Tests;
 
 public class ActionsTest : BaseTest
 {

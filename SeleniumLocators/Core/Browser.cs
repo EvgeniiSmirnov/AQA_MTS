@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumAdvanced.Core;
+namespace PageObject.Core;
 
 public class Browser
 {

@@ -1,9 +1,9 @@
-using SeleniumAdvanced.Core;
-using SeleniumAdvanced.Helpers;
-using SeleniumAdvanced.Helpers.Configuration;
+using PageObject.Core;
+using PageObject.Helpers;
+using PageObject.Helpers.Configuration;
 using OpenQA.Selenium;
 
-namespace SeleniumAdvanced.Tests;
+namespace PageObject.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
