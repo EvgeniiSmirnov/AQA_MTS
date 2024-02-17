@@ -1,17 +1,15 @@
 using OpenQA.Selenium;
+using PageObjectSauceDemo.Helpers;
 using PageObjectSauceDemo.Pages;
-
 
 namespace PageObjectSauceDemo.Steps;
 
-public class BaseStep
+public class BaseStep(IWebDriver driver)
 {
-    protected IWebDriver Driver;
-    protected LoginPage LoginPage { get; private set; }
+    protected IWebDriver Driver { get; set; } = driver;
+    protected WaitsHelper WaitsHelper { get; set; }
 
-    public BaseStep(IWebDriver driver)
-    {
-        Driver = driver;
-        LoginPage = new LoginPage(Driver, true);
-    }
+    public LoginPage LoginPage => new(Driver);
+
+    public InventoryPage InventoryPage => new(Driver, true);
 }

@@ -11,8 +11,14 @@ public class TestData
         "visual_user"
     ];
 
-    public static object[] BlockedUsenames =
+    public static string[] BlockedUsenames =
     [
         "locked_out_user"
     ];
+
+    public static object[] SuccessLoginUsers =
+        {
+            new object[] { "standard_user" }
+            
+        };
 }

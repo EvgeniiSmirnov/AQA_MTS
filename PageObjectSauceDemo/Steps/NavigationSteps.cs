@@ -1,28 +1,31 @@
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using PageObjectSauceDemo.Pages;
 
 namespace PageObjectSauceDemo.Steps;
 
-public class NavigationSteps : BaseStep
+public class NavigationSteps(IWebDriver driver) : BaseStep(driver)
 {
-    public NavigationSteps(IWebDriver driver) : base(driver) { }
-    
     public LoginPage NavigateToLoginPage()
     {
         return new LoginPage(Driver, true);
     }
 
-    //public LoginPage IncorrectLogin(string username, string psw)
-    //{
-    //    Login(username, psw);
-    //    return LoginPage;
-    //}
+    public InventoryPage Login(string username, string password)
+    {
+        LoginWith(username, password);
+        return new InventoryPage(Driver);
+    }
 
-    //private void Login(string username, string psw)
-    //{
-    //    LoginPage.EmailInput().SendKeys(username);
-    //    LoginPage.PswInput().SendKeys(psw);
-    //    LoginPage.LoginInButton().Click();
-    //}
+    public LoginPage UnSuccessLogin(string username, string password)
+    {
+        LoginWith(username, password);
+        return LoginPage;
+    }
 
+    private void LoginWith(string username, string password)
+    {
+        LoginPage.UsernameInput.SendKeys(username);
+        LoginPage.PasswordInput.SendKeys(password);
+        LoginPage.LoginButton.Click();
+    }
 }

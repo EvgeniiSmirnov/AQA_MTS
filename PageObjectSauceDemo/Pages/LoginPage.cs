@@ -36,27 +36,4 @@ public class LoginPage : BasePage
     public IWebElement PasswordInput => WaitsHelper.WaitForExists(PasswordInputBy);
     public IWebElement LoginButton => WaitsHelper.WaitForExists(LoginButtonBy);
     public IWebElement ErrorContainer => WaitsHelper.WaitForExists(ErrorContainerBy);
-
-    public void LoginButtonClick()
-    {
-        LoginButton.Click();
-    }
-
-    public InventoryPage Login(string username, string password)
-    {
-        UsernameInput.SendKeys(username);
-        PasswordInput.SendKeys(password);
-        LoginButton.Click();
-
-        return new InventoryPage(Driver);
-    }
-
-    public LoginPage Login1(string username, string password)
-    {
-        UsernameInput.SendKeys(username);
-        PasswordInput.SendKeys(password);
-        LoginButton.Click();
-
-        return new LoginPage(Driver); ;
-    }
 }
