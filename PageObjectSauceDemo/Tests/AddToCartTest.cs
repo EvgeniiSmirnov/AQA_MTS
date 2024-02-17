@@ -24,7 +24,7 @@ class AddToCartTest : BaseTest
             Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeInvisible());
         });
 
-        // нажимаем кнопку добавить в корзину
+        // нажимаем кнопку Add to cart
         NavigationSteps.InventoryPage.AddToCartButtonClick();
 
         Assert.Multiple(() =>

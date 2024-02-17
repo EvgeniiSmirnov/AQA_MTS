@@ -19,25 +19,10 @@ class RemoveFromCartTest : BaseTest
                 Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
                 // отображается нужный товар
                 Assert.That(NavigationSteps.InventoryPage.IsSauceLabsBackpackDisplayed());
-                // отображается кнопка Add to cart
-                Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonDisplayed());
-                // в корзине нет товаров (счётчик отсутствует)
-                Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeInvisible());
             });
 
-            // нажимаем кнопку добавить в корзину
+            // нажимаем кнопку Add to cart
             NavigationSteps.InventoryPage.AddToCartButtonClick();
-
-            Assert.Multiple(() =>
-            {
-                // проверяем, что:
-                // отображается кнопка Remove
-                Assert.That(NavigationSteps.InventoryPage.IsRemoveFromCartButtonDisplayed());
-                // в корзине появился товар (счётчик появился)
-                Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeDisplayed());
-                // перестала отображаться кнопка Add to cart
-                Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonInvisible());
-            });
 
             // переходим в корзину по клику
             NavigationSteps.InventoryPage.ShoppingCartClick();
