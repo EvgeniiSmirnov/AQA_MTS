@@ -7,12 +7,11 @@ namespace PageObjectSauceDemo.Steps;
 public class BaseStep
 {
     protected IWebDriver Driver;
-
-    public LoginPage LoginPage => new LoginPage(Driver);
-    //public InventoryPage CatalogPage => new InventoryPage(Driver, true);
+    protected LoginPage LoginPage { get; private set; }
 
     public BaseStep(IWebDriver driver)
     {
         Driver = driver;
+        LoginPage = new LoginPage(Driver, true);
     }
 }

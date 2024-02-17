@@ -6,7 +6,7 @@ namespace PageObjectSauceDemo.Tests;
 class LoginTest : BaseTest
 {
     [Test(Description = "Проверка успешного логина")]
-    [TestCaseSource(typeof(TestData), nameof(TestData.AcessedUsenames1))]
+    [TestCaseSource(typeof(TestData), nameof(TestData.AcessedUsenames))]
     public void UserLoginTest(string username)
     {
         
@@ -14,12 +14,20 @@ class LoginTest : BaseTest
         Assert.That(inventoryPage.IsPageOpened());
     }
 
-    [Test(Description = "Проверка заблокированного юзер логина")]
+    [Test(Description = "Проверка заблокированного username логина")]
     [TestCaseSource(typeof(TestData), nameof(TestData.BlockedUsenames))]
-    public void UserLoginTest1(string username)
+    public void BlockedUserLoginTest(string username)
     {
-        LoginPage loginPage = new LoginPage(Driver, true);
+        LoginPage loginPage = new(Driver, true);
         loginPage.Login1(username, Configurator.AppSettings.Password);
         Assert.That(loginPage.ErrorContainer.Text.Trim(), Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
+    }
+    
+    [Test(Description = "Проверка несуществующего username логина")]
+    public void NotExistUserLoginTest()
+    {
+        LoginPage loginPage = new(Driver, true);
+        loginPage.Login1("user", Configurator.AppSettings.Password);
+        Assert.That(loginPage.ErrorContainer.Text.Trim(), Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
     }
 }
