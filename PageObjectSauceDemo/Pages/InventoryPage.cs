@@ -32,6 +32,7 @@ public class InventoryPage : BasePage
 
     // Методы
     public IWebElement Title => WaitsHelper.WaitForExists(TitleBy);
+    
     public IWebElement SauceLabsBackpack => WaitsHelper.WaitForExists(SauceLabsBackpackBy);
     public bool IsSauceLabsBackpackDisplayed() => IsElementDisplayed(SauceLabsBackpack);
 
@@ -46,6 +47,7 @@ public class InventoryPage : BasePage
 
     public IWebElement RemoveFromCartButton => WaitsHelper.WaitForExists(RemoveFromCartButtonBy);
     public bool IsRemoveFromCartButtonDisplayed() => IsElementDisplayed(RemoveFromCartButton);
+    
     public IWebElement ShoppingCart => WaitsHelper.WaitForExists(ShoppingCartBy);
     public void ShoppingCartClick() => ShoppingCart.Click();
 

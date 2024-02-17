@@ -3,10 +3,10 @@ using PageObjectSauceDemo.Steps;
 
 namespace PageObjectSauceDemo.Tests;
 
-internal class AddToCartTest : BaseTest
+class AddToCartTest : BaseTest
 {
     [Test(Description = "Добавление товара в корзину. Проверка наличия товара в корзине")]
-    public void UserLoginTest()
+    public void SuccessAddToCartTest()
     {
         NavigationSteps.NavigateToLoginPage();
         NavigationSteps.Login(Configurator.AppSettings.Username, Configurator.AppSettings.Password);

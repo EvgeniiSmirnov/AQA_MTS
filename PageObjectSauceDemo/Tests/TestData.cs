@@ -15,10 +15,4 @@ public class TestData
     [
         "locked_out_user"
     ];
-
-    public static object[] SuccessLoginUsers =
-        {
-            new object[] { "standard_user" }
-            
-        };
 }
