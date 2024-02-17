@@ -16,12 +16,6 @@ public class NavigationSteps(IWebDriver driver) : BaseStep(driver)
         return new InventoryPage(Driver);
     }
 
-    public LoginPage UnSuccessLogin(string username, string password)
-    {
-        LoginWith(username, password);
-        return LoginPage;
-    }
-
     private void LoginWith(string username, string password)
     {
         LoginPage.UsernameInput.SendKeys(username);

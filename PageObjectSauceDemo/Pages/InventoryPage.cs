@@ -17,15 +17,11 @@ public class InventoryPage : BasePage
     public InventoryPage(IWebDriver? driver) : base(driver) { }
     public InventoryPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-    public IWebElement TitleLable => WaitsHelper.WaitForExists(TitleBy);
-    //public BackpackItemSmall BackpackItemSmall() => new BackpackItemSmall(Driver);
-    //public BikeLiteItemSmall BikeLiteItemSmall() => new BikeLiteItemSmall(Driver);
-
     public override bool IsPageOpened()
     {
         try
         {
-            return TitleLable.Displayed;
+            return Title.Displayed;
         }
         catch (Exception)
         {
@@ -37,16 +33,24 @@ public class InventoryPage : BasePage
     // Методы
     public IWebElement Title => WaitsHelper.WaitForExists(TitleBy);
     public IWebElement SauceLabsBackpack => WaitsHelper.WaitForExists(SauceLabsBackpackBy);
-    public IWebElement AddToCartButton => WaitsHelper.WaitForExists(AddToCartButtonBy);
-    public IWebElement RemoveFromCartButton => WaitsHelper.WaitForExists(RemoveFromCartButtonBy);
-    public IWebElement ShoppingCart => WaitsHelper.WaitForExists(ShoppingCartBy);
-    public bool IsInvisibleShoppingCartBadge
-    {
-        get
-        {
-            return WaitsHelper.WaitForElementInvisible(ShoppingCartBadgeBy);
-        }
-    }
+    public bool IsSauceLabsBackpackDisplayed() => IsElementDisplayed(SauceLabsBackpack);
 
-    //public IWebElement ShoppingCartBadge2 = Driver.FindElement(ShoppingCartBadgeBy);
+    public IWebElement AddToCartButton => WaitsHelper.WaitForExists(AddToCartButtonBy);
+    public bool IsAddToCartButtonDisplayed() => IsElementDisplayed(AddToCartButton);
+    public IWebElement ShoppingCartBadge => WaitsHelper.WaitForExists(ShoppingCartBadgeBy);
+    public bool IsShoppingCartBadgeDisplayed() => IsElementDisplayed(ShoppingCartBadge);
+    public bool IsShoppingCartBadgeInvisible() => WaitsHelper.WaitForElementInvisible(ShoppingCartBadgeBy);
+
+    public IWebElement RemoveFromCartButton => WaitsHelper.WaitForExists(RemoveFromCartButtonBy);
+    public bool IsRemoveFromCartButtonDisplayed() => IsElementDisplayed(RemoveFromCartButton);
+    public IWebElement ShoppingCart => WaitsHelper.WaitForExists(ShoppingCartBy);
+
+    private bool IsElementDisplayed(IWebElement webElement) => webElement.Displayed;
+
+    
+
+    public void AddToCartButtonClick()
+    {
+        AddToCartButton.Click();
+    }
 }

@@ -8,8 +8,10 @@ internal class AddToCartTest : BaseTest
     // найти товар Sauce Labs Backpack
     // найти кнопку add to cart
     // проверить что нет лейба на количество товара
+
     // нажать кнопку add to cart
     // проверить что лейбл на количество появился в значении 1
+
     // кликнуть на корзину
     // проверить что перешли на новую страницу
     // проверить что товар есть в корзине
@@ -24,11 +26,29 @@ internal class AddToCartTest : BaseTest
 
         Assert.Multiple(() =>
         {
+            // проверяем, что:
+            // загрузилась страница Inventory
             Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
-            Assert.That(NavigationSteps.InventoryPage.SauceLabsBackpack.Displayed);
-            Assert.That(NavigationSteps.InventoryPage.AddToCartButton.Displayed);
-            Assert.That(NavigationSteps.InventoryPage.IsInvisibleShoppingCartBadge);
+            // отображается нужный товар
+            Assert.That(NavigationSteps.InventoryPage.IsSauceLabsBackpackDisplayed());
+            // отображается кнопка добавить в корзина
+            Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonDisplayed());
+            // в корзине нет товаров (счётчик отсутствует)
+            Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeInvisible());
         });
-        
+        // нажимаем кнопку добавить в корзину
+        NavigationSteps.InventoryPage.AddToCartButtonClick();
+
+        Assert.Multiple(() =>
+        {
+            // проверяем, что:
+            // отображается кнопка удалить из корзины
+            Assert.That(NavigationSteps.InventoryPage.IsRemoveFromCartButtonDisplayed());
+            // в корзине появился товар (счётчик появился)
+            Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeDisplayed());
+        });
+
+
+
     }
 }
