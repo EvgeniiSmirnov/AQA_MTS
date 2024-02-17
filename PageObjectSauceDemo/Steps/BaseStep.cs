@@ -12,4 +12,6 @@ public class BaseStep(IWebDriver driver)
     public LoginPage LoginPage => new(Driver);
 
     public InventoryPage InventoryPage => new(Driver, true);
+
+    public CartPage CartPage => new(Driver, true);
 }

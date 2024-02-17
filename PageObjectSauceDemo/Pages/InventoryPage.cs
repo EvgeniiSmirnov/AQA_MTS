@@ -37,6 +37,9 @@ public class InventoryPage : BasePage
 
     public IWebElement AddToCartButton => WaitsHelper.WaitForExists(AddToCartButtonBy);
     public bool IsAddToCartButtonDisplayed() => IsElementDisplayed(AddToCartButton);
+    public bool IsAddToCartButtonInvisible() => WaitsHelper.WaitForElementInvisible(AddToCartButtonBy);
+    public void AddToCartButtonClick() => AddToCartButton.Click();
+
     public IWebElement ShoppingCartBadge => WaitsHelper.WaitForExists(ShoppingCartBadgeBy);
     public bool IsShoppingCartBadgeDisplayed() => IsElementDisplayed(ShoppingCartBadge);
     public bool IsShoppingCartBadgeInvisible() => WaitsHelper.WaitForElementInvisible(ShoppingCartBadgeBy);
@@ -44,13 +47,7 @@ public class InventoryPage : BasePage
     public IWebElement RemoveFromCartButton => WaitsHelper.WaitForExists(RemoveFromCartButtonBy);
     public bool IsRemoveFromCartButtonDisplayed() => IsElementDisplayed(RemoveFromCartButton);
     public IWebElement ShoppingCart => WaitsHelper.WaitForExists(ShoppingCartBy);
+    public void ShoppingCartClick() => ShoppingCart.Click();
 
     private bool IsElementDisplayed(IWebElement webElement) => webElement.Displayed;
-
-    
-
-    public void AddToCartButtonClick()
-    {
-        AddToCartButton.Click();
-    }
 }

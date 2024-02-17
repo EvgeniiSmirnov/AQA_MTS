@@ -5,20 +5,7 @@ namespace PageObjectSauceDemo.Tests;
 
 internal class AddToCartTest : BaseTest
 {
-    // найти товар Sauce Labs Backpack
-    // найти кнопку add to cart
-    // проверить что нет лейба на количество товара
-
-    // нажать кнопку add to cart
-    // проверить что лейбл на количество появился в значении 1
-
-    // кликнуть на корзину
-    // проверить что перешли на новую страницу
-    // проверить что товар есть в корзине
-    // проверить что есть кнопка ремув
-
-    [Test(Description = "Проверка 11")]
-    
+    [Test(Description = "Добавление товара в корзину. Проверка наличия товара в корзине")]
     public void UserLoginTest()
     {
         NavigationSteps.NavigateToLoginPage();
@@ -31,24 +18,38 @@ internal class AddToCartTest : BaseTest
             Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
             // отображается нужный товар
             Assert.That(NavigationSteps.InventoryPage.IsSauceLabsBackpackDisplayed());
-            // отображается кнопка добавить в корзина
+            // отображается кнопка Add to cart
             Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonDisplayed());
             // в корзине нет товаров (счётчик отсутствует)
             Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeInvisible());
         });
+
         // нажимаем кнопку добавить в корзину
         NavigationSteps.InventoryPage.AddToCartButtonClick();
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
-            // отображается кнопка удалить из корзины
+            // отображается кнопка Remove
             Assert.That(NavigationSteps.InventoryPage.IsRemoveFromCartButtonDisplayed());
             // в корзине появился товар (счётчик появился)
             Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeDisplayed());
+            // перестала отображаться кнопка Add to cart
+            Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonInvisible());
         });
 
+        // переходим в корзину по клику
+        NavigationSteps.InventoryPage.ShoppingCartClick();
 
-
+        Assert.Multiple(() =>
+        {
+            // проверяем, что:
+            // загрузилась страница Cart
+            Assert.That(NavigationSteps.CartPage.IsPageOpened());
+            // отображается нужный товар
+            Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackDisplayed());
+            // отображается кнопка Remove
+            Assert.That(NavigationSteps.CartPage.IsRemoveFromCartButtonDisplayed());
+        });
     }
 }
