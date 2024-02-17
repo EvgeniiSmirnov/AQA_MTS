@@ -7,7 +7,7 @@ public class AddProjectPage : ProjectBasePage
     private static string END_POINT = "index.php?/admin/projects/add";
     
     // Описание элементов
-    private static readonly By AddButtonBy = By.Id("name"); 
+    private static readonly By AddButtonBy = By.Id("name");
     
     public AddProjectPage(IWebDriver driver) : base(driver)
     {

@@ -9,8 +9,8 @@ namespace PageObjectSauceDemo.Tests;
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 public class BaseTest
 {
-    protected IWebDriver Driver { get; private set; }
-    protected WaitsHelper WaitsHelper { get; private set; }
+    public IWebDriver Driver { get; private set; }
+    public WaitsHelper WaitsHelper { get; private set; }
 
     [SetUp]
     public void Setup()

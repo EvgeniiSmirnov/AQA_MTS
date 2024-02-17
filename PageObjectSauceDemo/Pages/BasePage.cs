@@ -6,13 +6,13 @@ namespace PageObjectSauceDemo.Pages;
 
 public abstract class BasePage
 {
-    protected IWebDriver Driver { get; private set; }
-    protected WaitsHelper WaitsHelper { get; private set; }
+    protected IWebDriver Driver { get; set; }
+    protected WaitsHelper WaitsHelper { get; set; }
 
     public BasePage(IWebDriver driver, bool openPageByUrl = false)
     {
         Driver = driver;
-        WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+        WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(10));
 
         if (openPageByUrl)
         {
