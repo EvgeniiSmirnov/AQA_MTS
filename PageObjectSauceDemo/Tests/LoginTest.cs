@@ -1,7 +1,7 @@
-﻿using PageObjectSauceDemo.Helpers.Configuration;
-using PageObjectSauceDemo.Steps;
+﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
+using PageObjectStepsSauceDemo.Steps;
 
-namespace PageObjectSauceDemo.Tests;
+namespace PageObjectStepsSauceDemo.Tests;
 
 class LoginTest : BaseTest
 {

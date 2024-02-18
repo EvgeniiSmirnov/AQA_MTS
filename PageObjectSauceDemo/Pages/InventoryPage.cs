@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectSauceDemo.Pages;
+namespace PageObjectStepsSauceDemo.Pages;
 
 public class InventoryPage : BasePage
 {

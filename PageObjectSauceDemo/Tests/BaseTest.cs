@@ -1,10 +1,10 @@
-using PageObjectSauceDemo.Core;
-using PageObjectSauceDemo.Helpers;
-using PageObjectSauceDemo.Helpers.Configuration;
+using PageObjectStepsSauceDemo.Core;
+using PageObjectStepsSauceDemo.Helpers;
+using PageObjectStepsSauceDemo.Helpers.Configuration;
 using OpenQA.Selenium;
-using PageObjectSauceDemo.Steps;
+using PageObjectStepsSauceDemo.Steps;
 
-namespace PageObjectSauceDemo.Tests;
+namespace PageObjectStepsSauceDemo.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

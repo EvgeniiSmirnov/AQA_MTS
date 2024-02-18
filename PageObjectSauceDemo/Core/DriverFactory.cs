@@ -4,7 +4,7 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using LogLevel = OpenQA.Selenium.LogLevel;
 
-namespace PageObjectSauceDemo.Core;
+namespace PageObjectStepsSauceDemo.Core;
 
 public class DriverFactory
 {

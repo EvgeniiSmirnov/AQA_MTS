@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectSauceDemo.Core;
+namespace PageObjectStepsSauceDemo.Core;
 
 public class Browser
 {

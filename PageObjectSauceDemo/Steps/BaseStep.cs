@@ -1,8 +1,8 @@
 using OpenQA.Selenium;
-using PageObjectSauceDemo.Helpers;
-using PageObjectSauceDemo.Pages;
+using PageObjectStepsSauceDemo.Helpers;
+using PageObjectStepsSauceDemo.Pages;
 
-namespace PageObjectSauceDemo.Steps;
+namespace PageObjectStepsSauceDemo.Steps;
 
 public class BaseStep(IWebDriver driver)
 {

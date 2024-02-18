@@ -1,6 +1,6 @@
-﻿using PageObjectSauceDemo.Helpers.Configuration;
+﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
 
-namespace PageObjectSauceDemo.Tests;
+namespace PageObjectStepsSauceDemo.Tests;
 
 class RemoveFromCartTest : BaseTest
 {

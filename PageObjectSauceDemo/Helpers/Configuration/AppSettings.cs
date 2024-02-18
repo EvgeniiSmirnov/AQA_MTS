@@ -1,4 +1,4 @@
-namespace PageObjectSauceDemo.Helpers.Configuration;
+namespace PageObjectStepsSauceDemo.Helpers.Configuration;
 
 public class AppSettings
 {

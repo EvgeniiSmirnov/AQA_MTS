@@ -1,4 +1,4 @@
-﻿namespace PageObjectSauceDemo.Tests;
+﻿namespace PageObjectStepsSauceDemo.Tests;
 
 public class TestData
 {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageObjectSauceDemo", "PageObjectSauceDemo\PageObjectSauceDemo.csproj", "{99EC934B-1195-4A70-942A-FD49D5CF3370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageObjectStepsSauceDemo", "PageObjectSauceDemo\PageObjectStepsSauceDemo.csproj", "{99EC934B-1195-4A70-942A-FD49D5CF3370}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObjectSimpleSauceDemo", "PageObjectSimpleSauceDemo\PageObjectSimpleSauceDemo.csproj", "{2EC9DF78-D014-439D-B95F-1DDDD6F02ACF}"
 EndProject

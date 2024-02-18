@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace PageObjectSauceDemo.Helpers.Configuration;
+namespace PageObjectStepsSauceDemo.Helpers.Configuration;
 
 public static class Configurator
 {
