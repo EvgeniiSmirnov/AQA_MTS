@@ -23,7 +23,7 @@ public class CartPage : BasePage
     public bool IsSauceLabsBackpackInvisible() => WaitsHelper.WaitForElementInvisible(SauceLabsBackpackBy);
 
     public IWebElement RemoveFromCartButton => WaitsHelper.WaitForExists(RemoveFromCartButtonBy);
-    public bool IsRemoveFromCartButtonDisplayed() => IsElementDisplayed(RemoveFromCartButton);
+    public bool IsRemoveFromCartButtonDisplayed() => RemoveFromCartButton.Displayed;
     public bool IsRemoveFromCartButtonInvisible() => WaitsHelper.WaitForElementInvisible(RemoveFromCartButtonBy);
     public void RemoveFromCartButtonClick() => RemoveFromCartButton.Click();
 
@@ -31,7 +31,6 @@ public class CartPage : BasePage
     public void ContinueShoppingButtonClick() => ContinueShoppingButton.Click();
 
     public IWebElement CheckoutButton => WaitsHelper.WaitForExists(CheckoutButtonBy);
-    public void CheckoutButtonClick() => CheckoutButton.Click();
 
     private bool IsElementDisplayed(IWebElement webElement) => webElement.Displayed;
 

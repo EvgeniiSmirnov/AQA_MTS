@@ -21,6 +21,21 @@ public class NavigationSteps(IWebDriver driver) : BaseStep(driver)
         InventoryPage.ShoppingCart.Click();
         return new CartPage(Driver);
     }
+    public CartPage NavigateToCartPage(string username, string password)
+    {
+        NavigateToLoginPage();
+        Login(username, password);
+        InventoryPage.ShoppingCart.Click();
+        // нажимаем кнопку Add to cart
+        InventoryPage.AddToCartButtonClick();
+        return new CartPage(Driver);
+    }
+
+    public CheckoutStepOnePage NavigateToCheckoutStepOnePage()
+    {
+        CartPage.CheckoutButton.Click();
+        return new CheckoutStepOnePage(Driver);
+    }
 
     private void LoginWith(string username, string password)
     {

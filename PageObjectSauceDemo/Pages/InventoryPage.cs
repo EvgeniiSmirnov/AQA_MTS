@@ -34,21 +34,19 @@ public class InventoryPage : BasePage
     public IWebElement Title => WaitsHelper.WaitForExists(TitleBy);
     
     public IWebElement SauceLabsBackpack => WaitsHelper.WaitForExists(SauceLabsBackpackBy);
-    public bool IsSauceLabsBackpackDisplayed() => IsElementDisplayed(SauceLabsBackpack);
+    public bool IsSauceLabsBackpackDisplayed() => SauceLabsBackpack.Displayed;
 
     public IWebElement AddToCartButton => WaitsHelper.WaitForExists(AddToCartButtonBy);
-    public bool IsAddToCartButtonDisplayed() => IsElementDisplayed(AddToCartButton);
+    public bool IsAddToCartButtonDisplayed() => AddToCartButton.Displayed;
     public bool IsAddToCartButtonInvisible() => WaitsHelper.WaitForElementInvisible(AddToCartButtonBy);
     public void AddToCartButtonClick() => AddToCartButton.Click();
 
     public IWebElement ShoppingCartBadge => WaitsHelper.WaitForExists(ShoppingCartBadgeBy);
-    public bool IsShoppingCartBadgeDisplayed() => IsElementDisplayed(ShoppingCartBadge);
+    public bool IsShoppingCartBadgeDisplayed() => ShoppingCartBadge.Displayed;
     public bool IsShoppingCartBadgeInvisible() => WaitsHelper.WaitForElementInvisible(ShoppingCartBadgeBy);
 
     public IWebElement RemoveFromCartButton => WaitsHelper.WaitForExists(RemoveFromCartButtonBy);
-    public bool IsRemoveFromCartButtonDisplayed() => IsElementDisplayed(RemoveFromCartButton);
+    public bool IsRemoveFromCartButtonDisplayed() => RemoveFromCartButton.Displayed;
     
     public IWebElement ShoppingCart => WaitsHelper.WaitForExists(ShoppingCartBy);
-
-    private bool IsElementDisplayed(IWebElement webElement) => webElement.Displayed;
 }

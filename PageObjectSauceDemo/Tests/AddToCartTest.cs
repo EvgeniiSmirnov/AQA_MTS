@@ -27,6 +27,7 @@ class AddToCartTest : BaseTest
         // нажимаем кнопку Add to cart
         NavigationSteps.InventoryPage.AddToCartButtonClick();
 
+
         Assert.Multiple(() =>
         {
             // проверяем, что:
