@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using PageObjectSauceDemo.Helpers;
+using PageObjectSimpleSauceDemo.Helpers;
 
-namespace PageObjectSauceDemo.Pages;
+namespace PageObjectSimpleSauceDemo.Pages;
 
 public class CheckoutCompletePage : BasePage
 {

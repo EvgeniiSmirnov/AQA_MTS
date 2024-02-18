@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectSauceDemo.Pages;
+namespace PageObjectSimpleSauceDemo.Pages;
 
 public class CartPage : BasePage
 {
