@@ -10,12 +10,12 @@ class AddToCartTest : BaseTest
     {
         InventoryPage inventoryPage = new LoginPage(Driver, true)
             .Login(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
-
-        // проверяем, что после логина открылась ожидаемая страница
-        Assert.That(inventoryPage.IsPageOpened());
-
+        
         Assert.Multiple(() =>
         {
+            // проверяем, что после логина открылась ожидаемая страница
+            Assert.That(inventoryPage.IsPageOpened());
+                    
             // проверяем, что:
             // загрузилась страница Inventory
             Assert.That(inventoryPage.IsPageOpened());
@@ -44,7 +44,7 @@ class AddToCartTest : BaseTest
         // переходим в корзину по клику
         inventoryPage.ShoppingCartClick();
 
-        CartPage cartPage = new CartPage(Driver, true);
+        CartPage cartPage = new(Driver, true);
 
         Assert.Multiple(() =>
         {

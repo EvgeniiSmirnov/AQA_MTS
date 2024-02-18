@@ -16,6 +16,12 @@ public class NavigationSteps(IWebDriver driver) : BaseStep(driver)
         return new InventoryPage(Driver);
     }
 
+    public CartPage NavigateToCartPage()
+    {
+        InventoryPage.ShoppingCart.Click();
+        return new CartPage(Driver);
+    }
+
     private void LoginWith(string username, string password)
     {
         LoginPage.UsernameInput.SendKeys(username);

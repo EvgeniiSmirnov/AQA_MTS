@@ -1,72 +1,82 @@
-﻿//using PageObjectSauceDemo.Helpers.Configuration;
+﻿using PageObjectSimpleSauceDemo.Helpers.Configuration;
+using PageObjectSimpleSauceDemo.Pages;
 
-//namespace PageObjectSauceDemo.Tests;
+namespace PageObjectSimpleSauceDemo.Tests;
 
-//class CheckoutTest : BaseTest
-//{
-//    [Test(Description = "Оформление и оплата выбранного товара.")]
-//    public void SuccessCheckoutTest()
-//    {
-//        // блок подготовки
-//        {
-//            NavigationSteps.NavigateToLoginPage();
-//            NavigationSteps.Login(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+class CheckoutTest : BaseTest
+{
+    [Test(Description = "Оформление и оплата выбранного товара.")]
+    public void SuccessCheckoutTest()
+    {
+        CartPage cartPage;
+        // блок подготовки
+        {
+            InventoryPage inventoryPage = new LoginPage(Driver, true)
+            .Login(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
-//            Assert.Multiple(() =>
-//            {
-//                // проверяем, что:
-//                // загрузилась страница Inventory
-//                Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
-//                // отображается нужный товар
-//                Assert.That(NavigationSteps.InventoryPage.IsSauceLabsBackpackDisplayed());
-//            });
+            Assert.Multiple(() =>
+            {
+                // проверяем, что:
+                // загрузилась страница Inventory
+                Assert.That(inventoryPage.IsPageOpened());
+                // отображается нужный товар
+                Assert.That(inventoryPage.IsSauceLabsBackpackDisplayed());
+            });
 
-//            // нажимаем кнопку Add to cart
-//            NavigationSteps.InventoryPage.AddToCartButtonClick();
+            // нажимаем кнопку Add to cart
+            inventoryPage.AddToCartButtonClick();
 
-//            // переходим в корзину по клику
-//            NavigationSteps.InventoryPage.ShoppingCartClick();
+            // переходим в корзину по клику
+            inventoryPage.ShoppingCartClick();
 
-//            Assert.Multiple(() =>
-//            {
-//                // проверяем, что:
-//                // загрузилась страница Cart
-//                Assert.That(NavigationSteps.CartPage.IsPageOpened());
-//                // отображается нужный товар
-//                Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackDisplayed());
-//            });
-//        }
+            cartPage = new(Driver, true);
 
-//        // нажимаем кнопку Checkout
-//        NavigationSteps.CartPage.CheckoutButtonClick();
+            Assert.Multiple(() =>
+            {
+                // проверяем, что:
+                // загрузилась страница Cart
+                Assert.That(cartPage.IsPageOpened());
+                // отображается нужный товар
+                Assert.That(cartPage.IsSauceLabsBackpackDisplayed());
+            });
+        }
 
-//        // проверяем, что загрузилась страница Checkout Step One
-//        Assert.That(NavigationSteps.CheckoutStepOnePage.IsPageOpened());
+        // нажимаем кнопку Checkout
+        cartPage.CheckoutButtonClick();
 
-//        // заполняем данные о покупателе и кликаем кнопку Continue
-//        NavigationSteps.CheckoutStepOnePage.FillDataAndClickContinueButton("Happy", "Customer", "123456");
+        CheckoutStepOnePage checkoutStepOnePage = new(Driver, true);
 
-//        Assert.Multiple(() =>
-//        {
-//            // проверяем, что
-//            // загрузилась страница Checkout Step Two
-//            Assert.That(NavigationSteps.CheckoutStepTwoPage.IsPageOpened());
-//            // отображается нужный товар
-//            Assert.That(NavigationSteps.CheckoutStepTwoPage.IsSauceLabsBackpackDisplayed());
-//            // отображается платёжная информация
-//            Assert.That(NavigationSteps.CheckoutStepTwoPage.IsPaymentInformationDisplayed());
-//        });
+        // проверяем, что загрузилась страница Checkout Step One
+        Assert.That(checkoutStepOnePage.IsPageOpened());
 
-//        // нажимаем кнопку Checkout
-//        NavigationSteps.CheckoutStepTwoPage.FinishButtonClick();
+        // заполняем данные о покупателе и кликаем кнопку Continue
+        checkoutStepOnePage.FillDataAndClickContinueButton("Happy", "Customer", "123456");
 
-//        Assert.Multiple(() =>
-//        {
-//            // проверяем, что
-//            // загрузилась страница Checkout Complete
-//            Assert.That(NavigationSteps.CheckoutCompletePage.IsPageOpened());
-//            // отображается сообщение об успешном заказе
-//            Assert.That(NavigationSteps.CheckoutCompletePage.IsCompleteHeaderDisplayed());
-//        });
-//    }
-//}
+        CheckoutStepTwoPage checkoutStepTwoPage = new(Driver, true);
+
+        Assert.Multiple(() =>
+        {
+            // проверяем, что
+            // загрузилась страница Checkout Step Two
+            Assert.That(checkoutStepTwoPage.IsPageOpened());
+            // отображается нужный товар
+            Assert.That(checkoutStepTwoPage.IsSauceLabsBackpackDisplayed());
+            // отображается платёжная информация
+            Assert.That(checkoutStepTwoPage.IsPaymentInformationDisplayed());
+        });
+
+        // нажимаем кнопку Checkout
+        checkoutStepTwoPage.FinishButtonClick();
+
+        CheckoutCompletePage checkoutCompletePage = new(Driver, true);
+
+        Assert.Multiple(() =>
+        {
+            // проверяем, что
+            // загрузилась страница Checkout Complete
+            Assert.That(checkoutCompletePage.IsPageOpened());
+            // отображается сообщение об успешном заказе
+            Assert.That(checkoutCompletePage.IsCompleteHeaderDisplayed());
+        });
+    }
+}

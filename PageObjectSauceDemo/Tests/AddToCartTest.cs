@@ -39,7 +39,7 @@ class AddToCartTest : BaseTest
         });
 
         // переходим в корзину по клику
-        NavigationSteps.InventoryPage.ShoppingCartClick();
+        NavigationSteps.NavigateToCartPage();
 
         Assert.Multiple(() =>
         {

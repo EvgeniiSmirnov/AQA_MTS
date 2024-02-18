@@ -49,7 +49,6 @@ public class InventoryPage : BasePage
     public bool IsRemoveFromCartButtonDisplayed() => IsElementDisplayed(RemoveFromCartButton);
     
     public IWebElement ShoppingCart => WaitsHelper.WaitForExists(ShoppingCartBy);
-    public void ShoppingCartClick() => ShoppingCart.Click();
 
     private bool IsElementDisplayed(IWebElement webElement) => webElement.Displayed;
 }
