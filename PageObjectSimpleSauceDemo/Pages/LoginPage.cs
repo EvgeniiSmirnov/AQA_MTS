@@ -36,4 +36,26 @@ public class LoginPage : BasePage
     }
 
     protected override string GetEndpoint() => _endPoint;
+
+    public LoginPage LoginAttempt(string username, string password)
+    {
+        UsernameInput.SendKeys(username);
+        PasswordInput.SendKeys(password);
+        LoginButton.Click();
+
+        return new LoginPage(Driver); ;
+    }
+
+    public InventoryPage Login(string username, string password)
+    {
+        LoginWith(username, password);
+        return new InventoryPage(Driver);
+    }
+
+    private void LoginWith(string username, string password)
+    {
+        UsernameInput.SendKeys(username);
+        PasswordInput.SendKeys(password);
+        LoginButton.Click();
+    }
 }

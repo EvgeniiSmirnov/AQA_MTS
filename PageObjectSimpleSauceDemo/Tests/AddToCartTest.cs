@@ -1,55 +1,60 @@
-﻿using PageObjectSauceDemo.Helpers.Configuration;
-using PageObjectSauceDemo.Steps;
+﻿using PageObjectSimpleSauceDemo.Helpers.Configuration;
+using PageObjectSimpleSauceDemo.Pages;
 
-namespace PageObjectSauceDemo.Tests;
+namespace PageObjectSimpleSauceDemo.Tests;
 
 class AddToCartTest : BaseTest
 {
     [Test(Description = "Добавление товара в корзину. Проверка наличия товара в корзине")]
     public void SuccessAddToCartTest()
     {
-        NavigationSteps.NavigateToLoginPage();
-        NavigationSteps.Login(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+        InventoryPage inventoryPage = new LoginPage(Driver, true)
+            .Login(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+
+        // проверяем, что после логина открылась ожидаемая страница
+        Assert.That(inventoryPage.IsPageOpened());
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
             // загрузилась страница Inventory
-            Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
+            Assert.That(inventoryPage.IsPageOpened());
             // отображается нужный товар
-            Assert.That(NavigationSteps.InventoryPage.IsSauceLabsBackpackDisplayed());
+            Assert.That(inventoryPage.IsSauceLabsBackpackDisplayed());
             // отображается кнопка Add to cart
-            Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonDisplayed());
+            Assert.That(inventoryPage.IsAddToCartButtonDisplayed());
             // в корзине нет товаров (счётчик отсутствует)
-            Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeInvisible());
+            Assert.That(inventoryPage.IsShoppingCartBadgeInvisible());
         });
 
         // нажимаем кнопку Add to cart
-        NavigationSteps.InventoryPage.AddToCartButtonClick();
+        inventoryPage.AddToCartButtonClick();
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
             // отображается кнопка Remove
-            Assert.That(NavigationSteps.InventoryPage.IsRemoveFromCartButtonDisplayed());
+            Assert.That(inventoryPage.IsRemoveFromCartButtonDisplayed());
             // в корзине появился товар (счётчик появился)
-            Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeDisplayed());
+            Assert.That(inventoryPage.IsShoppingCartBadgeDisplayed());
             // перестала отображаться кнопка Add to cart
-            Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonInvisible());
+            Assert.That(inventoryPage.IsAddToCartButtonInvisible());
         });
 
         // переходим в корзину по клику
-        NavigationSteps.InventoryPage.ShoppingCartClick();
+        inventoryPage.ShoppingCartClick();
+
+        CartPage cartPage = new CartPage(Driver, true);
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
             // загрузилась страница Cart
-            Assert.That(NavigationSteps.CartPage.IsPageOpened());
+            Assert.That(cartPage.IsPageOpened());
             // отображается нужный товар
-            Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackDisplayed());
+            Assert.That(cartPage.IsSauceLabsBackpackDisplayed());
             // отображается кнопка Remove
-            Assert.That(NavigationSteps.CartPage.IsRemoveFromCartButtonDisplayed());
+            Assert.That(cartPage.IsRemoveFromCartButtonDisplayed());
         });
     }
 }

@@ -29,7 +29,7 @@ class LoginTest : BaseTest
     }
 
     [Test(Description = "Проверка несуществующего username логина")]
-    public void NotExistUserLoginTest2()
+    public void NotExistUserLoginTest()
     {
         NavigationSteps.NavigateToLoginPage();
         NavigationSteps.Login("user", Configurator.AppSettings.Password);
