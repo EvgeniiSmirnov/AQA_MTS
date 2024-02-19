@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace PageObjectStepsSauceDemo.Helpers.Configuration;
+namespace Allure.Helpers.Configuration;
 
 public static class Configurator
 {

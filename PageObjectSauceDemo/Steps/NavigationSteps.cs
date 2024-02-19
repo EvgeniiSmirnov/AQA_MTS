@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Pages;
+using Allure.Pages;
 
-namespace PageObjectStepsSauceDemo.Steps;
+namespace Allure.Steps;
 
 public class NavigationSteps(IWebDriver driver) : BaseStep(driver)
 {

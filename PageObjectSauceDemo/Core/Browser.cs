@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectStepsSauceDemo.Core;
+namespace Allure.Core;
 
 public class Browser
 {

@@ -1,4 +1,4 @@
-namespace PageObjectStepsSauceDemo.Helpers.Configuration;
+namespace Allure.Helpers.Configuration;
 
 public class AppSettings
 {

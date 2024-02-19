@@ -1,8 +1,8 @@
 using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Helpers;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
+using Allure.Helpers;
+using Allure.Helpers.Configuration;
 
-namespace PageObjectStepsSauceDemo.Pages;
+namespace Allure.Pages;
 
 public abstract class BasePage
 {

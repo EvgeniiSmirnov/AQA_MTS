@@ -4,7 +4,7 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using LogLevel = OpenQA.Selenium.LogLevel;
 
-namespace PageObjectStepsSauceDemo.Core;
+namespace Allure.Core;
 
 public class DriverFactory
 {

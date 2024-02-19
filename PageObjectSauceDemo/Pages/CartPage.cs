@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectStepsSauceDemo.Pages;
+namespace Allure.Pages;
 
 public class CartPage : BasePage
 {
