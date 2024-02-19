@@ -1,9 +1,12 @@
 using OpenQA.Selenium;
 using Allure.Helpers;
 using Allure.Pages;
+using NUnit.Allure.Core;
+using Allure.Net.Commons;
 
 namespace Allure.Steps;
 
+[AllureNUnit]
 public class BaseStep(IWebDriver driver)
 {
     protected IWebDriver Driver { get; set; } = driver;

@@ -18,7 +18,8 @@ public class BaseTest
     public WaitsHelper WaitsHelper { get; private set; }
 
     protected NavigationSteps NavigationSteps;
-    protected void TakeScreenshot(string name)
+
+    public void TakeScreenshot(string name)
     {
         Screenshot screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
         byte[] screenshotBytes = screenshot.AsByteArray;

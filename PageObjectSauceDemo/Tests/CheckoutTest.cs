@@ -1,5 +1,6 @@
 ﻿using Allure.Helpers.Configuration;
 using Allure.Net.Commons;
+using Allure.Steps;
 using NUnit.Allure.Attributes;
 
 namespace Allure.Tests;
@@ -17,10 +18,10 @@ class CheckoutTest : BaseTest
 
             Assert.Multiple(() =>
             {
-                // проверяем, что:
-                // загрузилась страница Cart
+                // проверяем, что
+                AllureApi.Step("загрузилась страница Cart");
                 Assert.That(NavigationSteps.CartPage.IsPageOpened());
-                // отображается нужный товар
+                AllureApi.Step("отображается нужный товар");
                 Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackDisplayed());
             });
         }
@@ -28,33 +29,37 @@ class CheckoutTest : BaseTest
         // нажимаем кнопку Checkout
         NavigationSteps.NavigateToCheckoutStepOnePage();
 
-        // проверяем, что загрузилась страница Checkout Step One
+        AllureApi.Step("загрузилась страница Checkout Step One");
         Assert.That(NavigationSteps.CheckoutStepOnePage.IsPageOpened());
 
-        // заполняем данные о покупателе и кликаем кнопку Continue
-        NavigationSteps.CheckoutStepOnePage.FillDataAndClickContinueButton("Happy", "Customer", "123456");
-
+        AllureApi.Step("заполняем данные о покупателе и кликаем кнопку Continue");
+        NavigationSteps.CheckoutStepOnePage.FillData("Happy", "Customer", "123456");
+        TakeScreenshot("данные покупателя");
+        NavigationSteps.CheckoutStepOnePage.ContinueButtonClick();
+        
         Assert.Multiple(() =>
         {
             // проверяем, что
-            // загрузилась страница Checkout Step Two
+            AllureApi.Step("загрузилась страница Checkout Step Two");
             Assert.That(NavigationSteps.CheckoutStepTwoPage.IsPageOpened());
-            // отображается нужный товар
+            AllureApi.Step("отображается нужный товар");
             Assert.That(NavigationSteps.CheckoutStepTwoPage.IsSauceLabsBackpackDisplayed());
-            // отображается платёжная информация
+            AllureApi.Step("отображается платёжная информация");
             Assert.That(NavigationSteps.CheckoutStepTwoPage.IsPaymentInformationDisplayed());
         });
+        TakeScreenshot("платёжная информация");
 
-        // нажимаем кнопку Checkout
+        AllureApi.Step("нажимаем кнопку Checkout");
         NavigationSteps.CheckoutStepTwoPage.FinishButtonClick();
 
         Assert.Multiple(() =>
         {
             // проверяем, что
-            // загрузилась страница Checkout Complete
+            AllureApi.Step("загрузилась страница Checkout Complete");
             Assert.That(NavigationSteps.CheckoutCompletePage.IsPageOpened());
-            // отображается сообщение об успешном заказе
+            AllureApi.Step("отображается сообщение об успешном заказе");
             Assert.That(NavigationSteps.CheckoutCompletePage.IsCompleteHeaderDisplayed());
         });
+        TakeScreenshot("сообщение сообщение об успешном заказе");
     }
 }

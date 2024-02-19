@@ -18,37 +18,41 @@ class RemoveFromCartTest : BaseTest
             Assert.Multiple(() =>
             {
                 // проверяем, что:
-                // загрузилась страница Cart
+                AllureApi.Step("загрузилась страница Cart");
                 Assert.That(NavigationSteps.CartPage.IsPageOpened());
-                // отображается нужный товар
+                AllureApi.Step("отображается нужный товар");
                 Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackDisplayed());
-                // отображается кнопка Remove
+                AllureApi.Step("отображается кнопка Remove");
                 Assert.That(NavigationSteps.CartPage.IsRemoveFromCartButtonDisplayed());
             });
+            TakeScreenshot("корзина с товаром");
         }
 
-        // удаляем товар из корзины кнопкой Remove
+        AllureApi.Step("удаляем товар из корзины кнопкой Remove");
         NavigationSteps.CartPage.RemoveFromCartButtonClick();
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
-            // товар не отображается
+            AllureApi.Step("товар не отображается");
             Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackInvisible());
-            // кнопка Remove не отображается
+            AllureApi.Step("кнопка Remove не отображается");
             Assert.That(NavigationSteps.CartPage.IsRemoveFromCartButtonInvisible());
         });
+        TakeScreenshot("товар удалён из корзины");
 
         // возвращаемся на страницу Inventory по клику на кнопку Continue Shopping
+        AllureApi.Step("возвращаемся на страницу Inventory");
         NavigationSteps.CartPage.ContinueShoppingButtonClick();
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
-            // загрузилась страница Inventory
+            AllureApi.Step("загрузилась страница Inventory");
             Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
-            // для нужного товара вновь отображается кнопка Add to cart
+            AllureApi.Step("для нужного товара вновь отображается кнопка Add to cart");
             Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonDisplayed());
         });
+        TakeScreenshot("товар внонь доступен для добавления в корзину");
     }
 }

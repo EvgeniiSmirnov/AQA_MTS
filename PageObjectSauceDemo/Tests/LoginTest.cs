@@ -14,10 +14,10 @@ class LoginTest : BaseTest
     {
         NavigationSteps.NavigateToLoginPage();
         NavigationSteps.Login(username, Configurator.AppSettings.Password);
-        
-        // проверяем, что после логина открылась ожидаемая страница
+
+        // проверяем, что 
+        AllureApi.Step("после логина открылась ожидаемая страница");
         Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
-        TakeScreenshot("123");
     }
 
     [Test(Description = "Проверка заблокированного username логина")]
@@ -28,9 +28,11 @@ class LoginTest : BaseTest
         NavigationSteps.NavigateToLoginPage();
         NavigationSteps.Login(username, Configurator.AppSettings.Password);
 
-        // проверяем, что сообщение содержит ожидаемый текст
+        // проверяем, что 
+        AllureApi.Step("сообщение содержит ожидаемый текст");
         Assert.That(NavigationSteps.LoginPage.ErrorContainer.Text.Trim(),
             Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
+        TakeScreenshot("сообщение об ошибке");
     }
 
     [Test(Description = "Проверка несуществующего username логина")]
@@ -41,7 +43,9 @@ class LoginTest : BaseTest
         NavigationSteps.Login("user", Configurator.AppSettings.Password);
 
         // проверяем, что сообщение содержит ожидаемый текст
+        AllureApi.Step("сообщение содержит ожидаемый текст");
         Assert.That(NavigationSteps.LoginPage.ErrorContainer.Text.Trim(),
             Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
+        TakeScreenshot("сообщение об ошибке");
     }
 }

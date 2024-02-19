@@ -23,13 +23,14 @@ public class CheckoutStepOnePage : BasePage
     public IWebElement PostalCodeInput => WaitsHelper.WaitForExists(PostalCodeInputBy);
     public IWebElement ContinueButton => WaitsHelper.WaitForExists(ContinueButtonBy);
 
-    public void FillDataAndClickContinueButton(string firstName, string lastName, string postalCode)
+    public void FillData(string firstName, string lastName, string postalCode)
     {
         FirstNameInput.SendKeys(firstName);
         LastNameInput.SendKeys(lastName);
-        PostalCodeInput.SendKeys(postalCode);
-        ContinueButton.Click();
+        PostalCodeInput.SendKeys(postalCode);  
     }
+
+    public void ContinueButtonClick() => ContinueButton.Click();    
 
     public override bool IsPageOpened()
     {

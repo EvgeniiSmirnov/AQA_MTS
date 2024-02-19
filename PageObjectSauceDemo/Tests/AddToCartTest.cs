@@ -16,7 +16,7 @@ class AddToCartTest : BaseTest
 
         Assert.Multiple(() =>
         {
-            // Проверяем, что
+            // проверяем, что
             AllureApi.Step("загрузилась страница Inventory");
             Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
             AllureApi.Step("отображается нужный товар");
