@@ -1,10 +1,13 @@
 ﻿using Allure.Helpers.Configuration;
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 
 namespace Allure.Tests;
 
 class RemoveFromCartTest : BaseTest
 {
     [Test(Description = "Удаление товара из корзины. Проверка возможности вновь добавить товар")]
+    [AllureSeverity(SeverityLevel.normal)]
     public void SuccessRemoveFromCartTest()
     {
         // блок подготовки

@@ -1,10 +1,13 @@
 ﻿using Allure.Helpers.Configuration;
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 
 namespace Allure.Tests;
 
 class CheckoutTest : BaseTest
 {
     [Test(Description = "Оформление и оплата выбранного товара.")]
+    [AllureSeverity(SeverityLevel.normal)]
     public void SuccessCheckoutTest()
     {
         // блок подготовки

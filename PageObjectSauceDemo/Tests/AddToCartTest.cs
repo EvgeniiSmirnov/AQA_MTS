@@ -1,11 +1,14 @@
 ﻿using Allure.Helpers.Configuration;
+using Allure.Net.Commons;
 using Allure.Steps;
+using NUnit.Allure.Attributes;
 
 namespace Allure.Tests;
 
 class AddToCartTest : BaseTest
 {
     [Test(Description = "Добавление товара в корзину. Проверка наличия товара в корзине")]
+    [AllureSeverity(SeverityLevel.normal)]
     public void SuccessAddToCartTest()
     {
         NavigationSteps.NavigateToLoginPage();
@@ -13,30 +16,32 @@ class AddToCartTest : BaseTest
 
         Assert.Multiple(() =>
         {
-            // проверяем, что:
-            // загрузилась страница Inventory
+            // Проверяем, что
+            AllureApi.Step("загрузилась страница Inventory");
             Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
-            // отображается нужный товар
+            AllureApi.Step("отображается нужный товар");
             Assert.That(NavigationSteps.InventoryPage.IsSauceLabsBackpackDisplayed());
-            // отображается кнопка Add to cart
+            AllureApi.Step("отображается кнопка Add to cart");
             Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonDisplayed());
-            // в корзине нет товаров (счётчик отсутствует)
+            AllureApi.Step("в корзине нет товаров (счётчик отсутствует)");
             Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeInvisible());
         });
+        TakeScreenshot("Страница Inventory до добавления товара в корзину");
 
-        // нажимаем кнопку Add to cart
+        AllureApi.Step("нажимаем кнопку Add to cart");
         NavigationSteps.InventoryPage.AddToCartButtonClick();
 
         Assert.Multiple(() =>
         {
             // проверяем, что:
-            // отображается кнопка Remove
+            AllureApi.Step("отображается кнопка Remove");
             Assert.That(NavigationSteps.InventoryPage.IsRemoveFromCartButtonDisplayed());
-            // в корзине появился товар (счётчик появился)
+            AllureApi.Step("в корзине появился товар (счётчик появился)");
             Assert.That(NavigationSteps.InventoryPage.IsShoppingCartBadgeDisplayed());
-            // перестала отображаться кнопка Add to cart
+            AllureApi.Step("перестала отображаться кнопка Add to cart");
             Assert.That(NavigationSteps.InventoryPage.IsAddToCartButtonInvisible());
         });
+        TakeScreenshot("Страница Inventory после добавления товара в корзину");
 
         // переходим в корзину по клику
         NavigationSteps.NavigateToCartPage();
@@ -44,12 +49,13 @@ class AddToCartTest : BaseTest
         Assert.Multiple(() =>
         {
             // проверяем, что:
-            // загрузилась страница Cart
+            AllureApi.Step("загрузилась страница Cart");
             Assert.That(NavigationSteps.CartPage.IsPageOpened());
-            // отображается нужный товар
+            AllureApi.Step("отображается нужный товар");
             Assert.That(NavigationSteps.CartPage.IsSauceLabsBackpackDisplayed());
-            // отображается кнопка Remove
+            AllureApi.Step("отображается кнопка Remove");
             Assert.That(NavigationSteps.CartPage.IsRemoveFromCartButtonDisplayed());
         });
+        TakeScreenshot("Страница Cart. Товар добавлен");
     }
 }

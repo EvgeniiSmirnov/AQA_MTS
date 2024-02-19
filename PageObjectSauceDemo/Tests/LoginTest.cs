@@ -1,5 +1,7 @@
 ﻿using Allure.Helpers.Configuration;
+using Allure.Net.Commons;
 using Allure.Steps;
+using NUnit.Allure.Attributes;
 
 namespace Allure.Tests;
 
@@ -7,6 +9,7 @@ class LoginTest : BaseTest
 {
     [Test(Description = "Проверка успешного логина")]
     [TestCaseSource(typeof(TestData), nameof(TestData.AcessedUsenames))]
+    [AllureSeverity(SeverityLevel.normal)]
     public void UserLoginTest(string username)
     {
         NavigationSteps.NavigateToLoginPage();
@@ -14,10 +17,12 @@ class LoginTest : BaseTest
         
         // проверяем, что после логина открылась ожидаемая страница
         Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
+        TakeScreenshot("123");
     }
 
     [Test(Description = "Проверка заблокированного username логина")]
     [TestCaseSource(typeof(TestData), nameof(TestData.BlockedUsenames))]
+    [AllureSeverity(SeverityLevel.normal)]
     public void BlockedUserLoginTest(string username)
     {
         NavigationSteps.NavigateToLoginPage();
@@ -29,6 +34,7 @@ class LoginTest : BaseTest
     }
 
     [Test(Description = "Проверка несуществующего username логина")]
+    [AllureSeverity(SeverityLevel.normal)]
     public void NotExistUserLoginTest()
     {
         NavigationSteps.NavigateToLoginPage();
