@@ -1,6 +1,6 @@
-﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
+﻿using Allure.Helpers.Configuration;
 
-namespace PageObjectStepsSauceDemo.Tests;
+namespace Allure.Tests;
 
 class RemoveFromCartTest : BaseTest
 {

@@ -1,8 +1,8 @@
 using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Helpers;
-using PageObjectStepsSauceDemo.Pages;
+using Allure.Helpers;
+using Allure.Pages;
 
-namespace PageObjectStepsSauceDemo.Steps;
+namespace Allure.Steps;
 
 public class BaseStep(IWebDriver driver)
 {

@@ -1,4 +1,4 @@
-﻿namespace PageObjectStepsSauceDemo.Tests;
+﻿namespace Allure.Tests;
 
 public class TestData
 {

@@ -1,7 +1,7 @@
-﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
-using PageObjectStepsSauceDemo.Steps;
+﻿using Allure.Helpers.Configuration;
+using Allure.Steps;
 
-namespace PageObjectStepsSauceDemo.Tests;
+namespace Allure.Tests;
 
 class LoginTest : BaseTest
 {

@@ -1,13 +1,15 @@
-using PageObjectStepsSauceDemo.Core;
-using PageObjectStepsSauceDemo.Helpers;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
+using Allure.Core;
+using Allure.Helpers;
+using Allure.Helpers.Configuration;
 using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Steps;
+using Allure.Steps;
+using NUnit.Allure.Core;
 
-namespace PageObjectStepsSauceDemo.Tests;
+namespace Allure.Tests;
 
 [Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+[AllureNUnit]
 public class BaseTest
 {
     public IWebDriver Driver { get; private set; }
