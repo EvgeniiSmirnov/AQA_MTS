@@ -6,7 +6,7 @@ using Wrappers.Steps;
 
 namespace Wrappers.Tests;
 
-public class RadioButtonTest : BaseTest
+public class ProjectsTest : BaseTest
 {
     [Test]
     public void AddProjectCorrectTest()
