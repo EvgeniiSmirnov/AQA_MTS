@@ -1,8 +1,6 @@
-﻿using OpenQA.Selenium;
-using Wrappers.Elements;
+﻿using Wrappers.Elements;
 using Wrappers.Helpers.Configuration;
 using Wrappers.Pages;
-using Wrappers.Pages.ProjectPages;
 using Wrappers.Steps;
 
 namespace Wrappers.Tests;
@@ -17,7 +15,8 @@ public class TableTest : BaseTest
             .AddProjectButton.Click();
 
         ProjectsPage projectsPage = new ProjectsPage(Driver, true);
-        TableCell tableCell = projectsPage.ProjectsTable.GetCell("Project", "Test2", "Project");
+        
+        TableCell tableCell = projectsPage.ProjectsTable.GetCell("Project", "ProjectForTableTest", "Project");
         tableCell.GetLink().Click();
     }
 }

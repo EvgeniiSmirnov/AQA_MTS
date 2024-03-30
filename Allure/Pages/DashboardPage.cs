@@ -11,7 +11,6 @@ public class DashboardPage : BasePage
     private static readonly By TitleLabelBy = By.ClassName("page_title");
     private static readonly By AddProjectButtonBy = By.Id("sidebar-projects-add");
 
-
     // Инициализация класса
     public DashboardPage(IWebDriver driver) : base(driver)
     {

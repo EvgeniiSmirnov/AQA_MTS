@@ -6,12 +6,12 @@ using Wrappers.Steps;
 
 namespace Wrappers.Tests;
 
-public class ProjectsTest : BaseTest
+public class RadioButtonTest : BaseTest
 {
     [Test]
     public void AddProjectCorrectTest()
     {
-        UserSteps
+       UserSteps
             .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password)
             .AddProjectButton.Click();
 
@@ -27,9 +27,12 @@ public class ProjectsTest : BaseTest
         UserSteps
             .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
-        Driver.Navigate().GoToUrl("https://ac0502.testrail.io/index.php?/admin/site_settings#");
+        Driver.Navigate().GoToUrl("https://smirnov707070.testrail.io/index.php?/admin/site_settings#");
+
+        Button tmpElement1 = new(Driver, By.Id("navigation-sitesettings-backup"));
+        tmpElement1.Click();
         RadioButton tmpElement = new(Driver, By.Name("restore_backup"));
 
-        tmpElement.SelectByIndex(3);
+        tmpElement.SelectByIndex(0);
     }
 }

@@ -1,6 +1,4 @@
 ﻿using OpenQA.Selenium;
-using Wrappers.Helpers;
-using Wrappers.Helpers.Configuration;
 
 namespace Wrappers.Elements;
 
@@ -9,7 +7,6 @@ public class Table
     private UIElement _uiElement;
     private List<string> _columns;
     private List<TableRow> _rows;
-
 
     /// <summary>
     /// Локатор данного элемента должен использовать тэг table

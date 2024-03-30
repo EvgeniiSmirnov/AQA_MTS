@@ -14,7 +14,7 @@ public class ProjectsSteps : BaseSteps
 
     public void AddProductToCart(List<string> Products)
     {
-        new NavigationSteps(Driver).NavigateToProducts();
+        //new NavigationSteps(Driver).NavigateToProducts();
 
 
         // Пройтись по всей коллекции и найти эелементы на странице

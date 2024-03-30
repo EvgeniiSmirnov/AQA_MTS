@@ -51,12 +51,13 @@ public class RadioButton
 
     public void SelectByText(string text)
     {
-        var index = _texts.IndexOf(text);
-        _uiElements[index].Click();
+        _uiElements[_texts.IndexOf(text)].Click();
     }
 
     public List<string> GetOptions()
     {
         return _texts;
     }
+
+
 }

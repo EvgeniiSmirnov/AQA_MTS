@@ -11,7 +11,7 @@ public class ProjectsPage : BasePage
     private static readonly By TitleLabelBy = By.ClassName("page_title");
     private static readonly By AddProjectButtonBy = By.XPath("//*[contains(text(), 'Add Project')]");
     private static readonly By ProjectsTableBy = By.CssSelector("table.grid");
-
+    private static readonly By AddProjectButtonBy1 = By.Id("navigation-sitesettings-backup");
 
     // Инициализация класса
     public ProjectsPage(IWebDriver driver) : base(driver)
@@ -35,5 +35,6 @@ public class ProjectsPage : BasePage
     // Атомарные Методы
     public UIElement TitleLabel => new(Driver, TitleLabelBy);
     public Button AddProjectButton => new(Driver, AddProjectButtonBy);
+    public Button AddProjectButton1 => new(Driver, AddProjectButtonBy1);
     public Table ProjectsTable => new(Driver, ProjectsTableBy);
 }
