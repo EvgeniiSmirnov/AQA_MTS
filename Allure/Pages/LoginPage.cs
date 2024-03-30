@@ -1,39 +1,47 @@
 ﻿using OpenQA.Selenium;
+using Wrappers.Elements;
 
-namespace AllureReport.Pages;
-
-public class LoginPage : BasePage
+namespace Wrappers.Pages
 {
-    private static readonly string _endPoint = "";
-
-    // Описание элементов
-    private static readonly By UsernameInputBy = By.Id("user-name");
-    private static readonly By PasswordInputBy = By.Id("password");
-    private static readonly By LoginButtonBy = By.Id("login-button");
-    private static readonly By ErrorContainerBy = By.ClassName("error-message-container");
-
-    // Инициализация класса
-    public LoginPage(IWebDriver driver) : base(driver, false) { }
-    public LoginPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl) { }
-
-    public override bool IsPageOpened()
+    public class LoginPage : BasePage
     {
-        try
+        private static string END_POINT = "";
+
+        // Описание элементов
+        private static readonly By EmailInputBy = By.Id("name");
+        private static readonly By PswInputBy = By.Id("password");
+        private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
+        private static readonly By LoginInButtonBy = By.Id("button_primary");
+        private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
+
+        // Инициализация класса
+        public LoginPage(IWebDriver driver) : base(driver)
         {
-            return LoginButton.Displayed;
-        }
-        catch (Exception)
-        {
-            return false;
         }
 
+        protected override string GetEndpoint()
+        {
+            return END_POINT;
+        }
+
+        public override bool IsPageOpened()
+        {
+            return LoginInButton.Displayed && EmailInput.Displayed;
+        }
+
+        // Методы
+        // Методы поиска элементов
+        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
+        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
+        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+        public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
+        // public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
+        public Button LoginInButton => new Button(Driver, LoginInButtonBy);
+
+        // Методы действий с элементами
+        public void ClickLoginInButton() => LoginInButton.Click();
+
+        // Методы получения свойств
+        public string GetErrorLabelText() => ErrorLabel.Text.Trim();
     }
-
-    protected override string GetEndpoint() => _endPoint;
-
-    // Методы
-    public IWebElement UsernameInput => WaitsHelper.WaitForExists(UsernameInputBy);
-    public IWebElement PasswordInput => WaitsHelper.WaitForExists(PasswordInputBy);
-    public IWebElement LoginButton => WaitsHelper.WaitForExists(LoginButtonBy);
-    public IWebElement ErrorContainer => WaitsHelper.WaitForExists(ErrorContainerBy);
 }

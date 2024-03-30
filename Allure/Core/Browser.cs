@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace AllureReport.Core;
+namespace Wrappers.Core;
 
 public class Browser
 {

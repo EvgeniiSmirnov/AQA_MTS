@@ -1,52 +1,42 @@
-﻿using AllureReport.Helpers.Configuration;
-using Allure.Net.Commons;
-using AllureReport.Steps;
-using NUnit.Allure.Attributes;
-using NUnit.Framework.Interfaces;
+﻿using Wrappers.Helpers.Configuration;
+using Wrappers.Pages;
+using Wrappers.Steps;
 
-namespace AllureReport.Tests;
+namespace Wrappers.Tests;
 
-class LoginTest : BaseTest
+public class LoginTest : BaseTest
 {
-    [Test(Description = "Проверка успешного логина")]
-    [TestCaseSource(typeof(TestData), nameof(TestData.AcessedUsenames))]
-    [AllureSeverity(SeverityLevel.normal)]
-    public void UserLoginTest(string username)
+    [Test]
+    public void SuccessfulLoginTest()
     {
-        NavigationSteps.NavigateToLoginPage();
-        NavigationSteps.Login(username, Configurator.AppSettings.Password);
+        LoginPage _loginPage = new LoginPage(Driver);
+        _loginPage.EmailInput.SendKeys(Configurator.AppSettings.Username);
+        _loginPage.PswInput.SendKeys(Configurator.AppSettings.Password);
+        _loginPage.ClickLoginInButton();
 
-        // проверяем, что 
-        AllureApi.Step("после логина открылась ожидаемая страница");
-        Assert.That(NavigationSteps.InventoryPage.IsPageOpened());
+        DashboardPage dashboardPage = new DashboardPage(Driver);
+
+        Assert.That(dashboardPage.IsPageOpened);
     }
 
-    [Test(Description = "Проверка заблокированного username логина")]
-    [TestCaseSource(typeof(TestData), nameof(TestData.BlockedUsenames))]
-    [AllureSeverity(SeverityLevel.normal)]
-    public void BlockedUserLoginTest(string username)
+    [Test]
+    public void SuccessfulLoginTest1()
     {
-        NavigationSteps.NavigateToLoginPage();
-        NavigationSteps.Login(username, Configurator.AppSettings.Password);
+        UserSteps userSteps = new UserSteps(Driver);
+        DashboardPage dashboardPage = userSteps
+            .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
-        // проверяем, что 
-        AllureApi.Step("сообщение содержит ожидаемый текст");
-        Assert.That(NavigationSteps.LoginPage.ErrorContainer.Text.Trim(),
-            Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
-        TakeScreenshot("сообщение об ошибке");
+        Assert.That(dashboardPage.IsPageOpened);
     }
 
-    [Test(Description = "Проверка несуществующего username логина")]
-    [AllureSeverity(SeverityLevel.normal)]
-    public void NotExistUserLoginTest()
+    [Test]
+    public void InvalidUsernameLoginTest()
     {
-        NavigationSteps.NavigateToLoginPage();
-        NavigationSteps.Login("user", Configurator.AppSettings.Password);
-
-        // проверяем, что сообщение содержит ожидаемый текст
-        AllureApi.Step("сообщение содержит ожидаемый текст");
-        Assert.That(NavigationSteps.LoginPage.ErrorContainer.Text.Trim(),
-            Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
-        TakeScreenshot("сообщение об ошибке");
+        // Проверка
+        Assert.That(
+            new UserSteps(Driver)
+                .IncorrectLogin("ssdd", "1236546")
+                .GetErrorLabelText(),
+            Is.EqualTo("Email/Login or Password is incorrect. Please try again."));
     }
 }
