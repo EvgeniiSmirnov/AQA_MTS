@@ -14,6 +14,7 @@ public class Checkbox(IWebDriver driver, By by)
     }
 
     public void SetCheckbox() => UseCheckbox(true);
+
     public void RemoveCheckbox() => UseCheckbox(false);
 
     public bool IsSet() => _UIElement.Selected;
