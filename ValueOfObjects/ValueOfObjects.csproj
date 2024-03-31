@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 		<None Remove="appsettings.json" />
+		<None Remove="Core\x4h1kw3d.vhm~" />
 	</ItemGroup>
 
 	<ItemGroup>

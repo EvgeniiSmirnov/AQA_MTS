@@ -1,31 +1,18 @@
 ﻿using OpenQA.Selenium;
-using ValueOfObjects.Pages;
+using ValueOfObjects.Elements;
 
 namespace ValueOfObjects.Pages.ProjectPages;
 
-public class ProjectBasePage : BasePage
+public abstract class ProjectBasePage(IWebDriver? driver, bool openByURL = false) : BasePage(driver, openByURL)
 {
     private static readonly By NameInputBy = By.Id("name");
-    private static readonly By ProjectTypeRadioButtonBy = By.Name("suite_mode");
-
-    public ProjectBasePage(IWebDriver driver) : base(driver)
-    {
-    }
-
-    public ProjectBasePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-    {
-    }
-
-    protected override string GetEndpoint()
-    {
-        throw new NotImplementedException();
-    }
-
-    public override bool IsPageOpened()
-    {
-        throw new NotImplementedException();
-    }
+    private static readonly By AnnouncementTextAreaBy = By.Id("announcement_display");
+    private static readonly By ShowAnnouncementCheckBoxBy = By.Id("show_announcement");
+    private static readonly By TypeRadioButtonBy = By.Name("suite_mode");
 
     // Атомарные Методы
-    //public RadioButton ProjectTypeRadioButton => new RadioButton(Driver, ProjectTypeRadioButtonBy);
+    public IWebElement NameInput => WaitsHelper.WaitForExists(NameInputBy);
+    public IWebElement AnnouncementTextArea => WaitsHelper.WaitForExists(AnnouncementTextAreaBy);
+    public IWebElement ShowAnnouncementCheckBox => WaitsHelper.WaitForExists(ShowAnnouncementCheckBoxBy);
+    public RadioButton TypeRadioButton => new RadioButton(Driver, TypeRadioButtonBy);
 }

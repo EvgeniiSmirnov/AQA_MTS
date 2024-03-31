@@ -1,35 +1,26 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using ValueOfObjects.Helpers;
 using ValueOfObjects.Helpers.Configuration;
 
 namespace ValueOfObjects.Pages;
 
-public abstract class BasePage
+public abstract class BasePage : LoadableComponent<BasePage>
 {
-    protected IWebDriver Driver { get; private set; }
+    protected IWebDriver Driver { get; }
     protected WaitsHelper WaitsHelper { get; private set; }
 
-    public BasePage(IWebDriver driver)
-    {
-        Driver = driver;
-        WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
-    }
-
-    public BasePage(IWebDriver driver, bool openPageByUrl)
+    protected BasePage(IWebDriver driver, bool openByURL = false)
     {
         Driver = driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
 
-        if (openPageByUrl)
-        {
-            OpenPageByURL();
-        }
+        if (openByURL) Load();
     }
 
     protected abstract string GetEndpoint();
-    public abstract bool IsPageOpened();
 
-    protected void OpenPageByURL()
+    protected override void ExecuteLoad()
     {
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL + GetEndpoint());
     }

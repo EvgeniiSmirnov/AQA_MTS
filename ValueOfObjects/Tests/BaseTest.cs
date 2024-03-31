@@ -1,8 +1,8 @@
-﻿using OpenQA.Selenium;
-using ChainOfInvocations.Core;
-using NUnit.Framework;
-using ValueOfObjects.Helpers;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using ValueOfObjects.Core;
 using ValueOfObjects.Helpers.Configuration;
+using ValueOfObjects.Models;
 using ValueOfObjects.Steps;
 
 namespace ValueOfObjects.Tests;
@@ -12,17 +12,25 @@ namespace ValueOfObjects.Tests;
 public class BaseTest
 {
     protected IWebDriver Driver { get; private set; }
-    protected WaitsHelper WaitsHelper { get; private set; }
 
     protected NavigationSteps _navigationSteps;
+    protected ProjectSteps _projectSteps;
+
+    protected User Admin { get; private set; }
 
     [SetUp]
-    public void FactoryDriverTest()
+    public void Setup()
     {
         Driver = new Browser().Driver;
-        WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
 
         _navigationSteps = new NavigationSteps(Driver);
+        _projectSteps = new ProjectSteps(Driver);
+
+        Admin = new User
+        {
+            Email = Configurator.AppSettings.Username,
+            Password = Configurator.AppSettings.Password
+        };
 
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
     }

@@ -1,29 +1,31 @@
 ﻿using OpenQA.Selenium;
 
-namespace ValueOfObjects.Pages;
-
-public class DashboardPage : BasePage
+namespace ValueOfObjects.Pages
 {
-    private static string END_POINT = "index.php?/dashboard";
-
-    // Описание элементов
-    private static readonly By TitleLabelBy = By.ClassName("page_title");
-
-    // Инициализация класса
-    public DashboardPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
-
-    public DashboardPage(IWebDriver driver) : base(driver) { }
-
-    protected override string GetEndpoint()
+    public class DashboardPage(IWebDriver? driver, bool openByURL = false) : BasePage(driver, openByURL)
     {
-        return END_POINT;
-    }
+        private const string END_POINT = "index.php?/dashboard";
 
-    public override bool IsPageOpened()
-    {
-        return TitleLabel.Text.Trim().Equals("All Projects");
-    }
+        // Описание элементов
+        private static readonly By SidebarProjectsAddButtonBy = By.Id("sidebar-projects-add");
 
-    // Атомарные Методы
-    public IWebElement TitleLabel => WaitsHelper.WaitForExists(TitleLabelBy);
+        protected override bool EvaluateLoadedStatus()
+        {
+            try
+            {
+                return SidebarProjectsAddButton.Displayed;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        protected override string GetEndpoint()
+        {
+            return END_POINT;
+        }
+
+        public IWebElement SidebarProjectsAddButton => WaitsHelper.WaitForExists(SidebarProjectsAddButtonBy);
+    }
 }
