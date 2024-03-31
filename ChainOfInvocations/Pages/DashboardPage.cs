@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using ChainOfInvocations.Elements;
+using ChainOfInvocations.Pages.ProjectPages;
+using OpenQA.Selenium;
 
 namespace ChainOfInvocations.Pages;
 
@@ -8,22 +10,31 @@ public class DashboardPage : BasePage
 
     // Описание элементов
     private static readonly By TitleLabelBy = By.ClassName("page_title");
+    private static readonly By SidebarProjectsAddButtonBy = By.Id("sidebar-projects-add");
 
-    // Инициализация класса
     public DashboardPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
-
     public DashboardPage(IWebDriver driver) : base(driver) { }
-
-    protected override string GetEndpoint()
-    {
-        return END_POINT;
-    }
 
     public override bool IsPageOpened()
     {
-        return TitleLabel.Text.Trim().Equals("All Projects");
+        try
+        {
+            return SidebarProjectsAddButton.Displayed && TitleLabel.Text.Trim().Equals("All Projects"); ;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 
-    // Атомарные Методы
-    public IWebElement TitleLabel => WaitsHelper.WaitForExists(TitleLabelBy);
+    protected override string GetEndpoint() => END_POINT;
+
+    public UIElement TitleLabel => new(Driver, TitleLabelBy);
+    public Button SidebarProjectsAddButton => new(Driver, SidebarProjectsAddButtonBy);
+
+    public AddProjectPage ClickSidebarProjectsAddButton()
+    {
+        SidebarProjectsAddButton.Click();
+        return new AddProjectPage(Driver);
+    }
 }
