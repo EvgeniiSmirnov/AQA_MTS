@@ -9,11 +9,10 @@ public class DashboardPage : BasePage
     // Описание элементов
     private static readonly By TitleLabelBy = By.ClassName("page_title");
 
-
     // Инициализация класса
-    public DashboardPage(IWebDriver driver) : base(driver)
-    {
-    }
+    public DashboardPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
+
+    public DashboardPage(IWebDriver driver) : base(driver) { }
 
     protected override string GetEndpoint()
     {
