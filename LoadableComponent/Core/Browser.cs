@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ChainOfInvocations.Core;
+namespace LoadableComponent.Core;
 
 public class Browser
 {

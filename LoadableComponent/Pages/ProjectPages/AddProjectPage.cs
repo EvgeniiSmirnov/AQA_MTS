@@ -1,29 +1,24 @@
 ﻿using OpenQA.Selenium;
 
-namespace ChainOfInvocations.Pages.ProjectPages;
+namespace LoadableComponent.Pages.ProjectPages;
 
-public class AddProjectPage : ProjectBasePage
+public class AddProjectPage(IWebDriver? driver, bool openByURL = false) : BasePage(driver, openByURL)
 {
-    private static string END_POINT = "index.php?/admin/projects/add";
+    private const string END_POINT = "index.php?/admin/projects/add";
 
     // Описание элементов
     private static readonly By AddButtonBy = By.Id("name");
-    private static readonly By ShowAnnouncementCheckboxBy = By.Id("show_announcement");
-
-    public AddProjectPage(IWebDriver driver) : base(driver)
-    {
-    }
 
     protected override string GetEndpoint()
     {
         return END_POINT;
     }
 
-    public override bool IsPageOpened()
+    protected override bool EvaluateLoadedStatus()
     {
         throw new NotImplementedException();
     }
 
     // Атомарные Методы
-    public IWebElement AddButton => Driver.FindElement(AddButtonBy);
+    public IWebElement AddButton => WaitsHelper.WaitForExists(AddButtonBy);
 }

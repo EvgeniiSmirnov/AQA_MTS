@@ -1,4 +1,4 @@
-﻿namespace ChainOfInvocations.Helpers.Configuration;
+﻿namespace LoadableComponent.Helpers.Configuration;
 
 public class AppSettings
 {

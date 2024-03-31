@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace ChainOfInvocations.Helpers;
+namespace LoadableComponent.Helpers;
 
 public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 {

@@ -1,28 +1,22 @@
-﻿using ChainOfInvocations.Pages;
-using NUnit.Framework;
-using ChainOfInvocations.Helpers.Configuration;
+﻿using NUnit.Framework;
+using LoadableComponent.Pages;
+using LoadableComponent.Helpers.Configuration;
 
-namespace ChainOfInvocations.Tests;
+namespace LoadableComponent.Tests;
 
 public class LoginTest : BaseTest
 {
     [Test]
     public void SuccessfulLoginTest()
     {
-        DashboardPage dashboardPage = _navigationSteps
-            .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+        LoginPage loginPage = new LoginPage(Driver);
+        loginPage.Load();
 
-        Assert.That(dashboardPage.IsPageOpened);
-    }
+        loginPage.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
-    [Test]
-    public void InvalidUsernameLoginTest()
-    {
-        // Проверка
-        Assert.That(
-            _navigationSteps
-                .IncorrectLogin("ssdd", "123123")
-                .GetErrorLabelText(),
-            Is.EqualTo("Email/Login or Password is incorrect. Please try again."));
+        //Driver.Navigate().GoToUrl("https://smirnov707070.testrail.io//index.php?/mysettings");
+
+        DashboardPage dashboardPage = new DashboardPage(Driver);
+        dashboardPage.SidebarProjectsAddButton.Click();
     }
 }

@@ -1,46 +1,52 @@
 ﻿using OpenQA.Selenium;
 
-namespace ChainOfInvocations.Pages
+namespace LoadableComponent.Pages;
+
+public class LoginPage(IWebDriver? driver) : BasePage(driver)
 {
-    public class LoginPage : BasePage
+    private const string END_POINT = "";
+
+    // Описание элементов
+    private static readonly By EmailInputBy = By.Id("name");
+    private static readonly By PswInputBy = By.Id("password");
+    private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
+    private static readonly By LoginInButtonBy = By.Id("button_primary");
+    private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
+
+    // Инициализация класса
+    protected override string GetEndpoint()
     {
-        private static string END_POINT = "";
+        return END_POINT;
+    }
 
-        // Описание элементов
-        private static readonly By EmailInputBy = By.Id("name");
-        private static readonly By PswInputBy = By.Id("password");
-        private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
-        private static readonly By LoginInButtonBy = By.Id("button_primary");
-        private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
+    protected override bool EvaluateLoadedStatus()
+    {
+        return LoginInButton.Displayed && EmailInput.Displayed;
+    }
 
-        // Инициализация класса
-        public LoginPage(IWebDriver driver) : base(driver)
-        {
-        }
+    // Методы
+    public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
+    public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
+    public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+    public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
+    public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
 
-        protected override string GetEndpoint()
-        {
-            return END_POINT;
-        }
+    // Комплексные
+    public DashboardPage SuccessfulLogin(string username, string password)
+    {
+        EmailInput.SendKeys(username);
+        PswInput.SendKeys(password);
+        LoginInButton.Click();
 
-        public override bool IsPageOpened()
-        {
-            return LoginInButton.Displayed && EmailInput.Displayed;
-        }
+        return new DashboardPage(Driver);
+    }
 
-        // Методы
-        // Методы поиска элементов
-        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
-        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
-        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
-        public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
-        public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
-        //public Button LoginInButton => new Button(Driver, LoginInButtonBy);
+    public LoginPage IncorrectLogin(string username, string password)
+    {
+        EmailInput.SendKeys(username);
+        PswInput.SendKeys(password);
+        LoginInButton.Click();
 
-        // Методы действий с элементами
-        public void ClickLoginInButton() => LoginInButton.Click();
-
-        // Методы получения свойств
-        public string GetErrorLabelText() => ErrorLabel.Text.Trim();
+        return this;
     }
 }
