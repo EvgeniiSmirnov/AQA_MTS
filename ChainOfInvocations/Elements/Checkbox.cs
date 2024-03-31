@@ -8,14 +8,10 @@ public class Checkbox(IWebDriver driver, By by)
 
     private void Click() => _UIElement.Click();
 
-    private void UseCheckbox(bool set)
+    public void UseCheckbox(bool set)
     {
         if (IsSet() != set) Click();
     }
-
-    public void SetCheckbox() => UseCheckbox(true);
-
-    public void RemoveCheckbox() => UseCheckbox(false);
 
     public bool IsSet() => _UIElement.Selected;
 }

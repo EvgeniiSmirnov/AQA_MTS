@@ -39,9 +39,9 @@ public class AddProjectPage : ProjectBasePage
         return this;
     }
 
-    public AddProjectPage CheckShowAnnouncementCheckbox()
+    public AddProjectPage CheckShowAnnouncementCheckbox(bool value)
     {
-        ShowAnnouncementCheckbox.SetCheckbox();
+        ShowAnnouncementCheckbox.UseCheckbox(value);
         return this;
     }
 
@@ -57,9 +57,9 @@ public class AddProjectPage : ProjectBasePage
         return this;
     }
 
-    public AddProjectPage CheckCaseApprovalsCheckbox()
+    public AddProjectPage CheckCaseApprovalsCheckbox(bool value)
     {
-        CaseApprovalsCheckbox.SetCheckbox();
+        CaseApprovalsCheckbox.UseCheckbox(value);
         return this;
     }
 

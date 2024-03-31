@@ -14,9 +14,9 @@ public class ProjectsSteps(IWebDriver driver) : BaseSteps(driver)
             .ClickSidebarProjectsAddButton()
             .InputNameValue(projectName)
             .InputAnnouncementValue(announcement)
-            .CheckShowAnnouncementCheckbox()
+            .CheckShowAnnouncementCheckbox(true)
             .ChooseProjectType(suiteMode)
-            .CheckCaseApprovalsCheckbox()
+            .CheckCaseApprovalsCheckbox(true)
             .ClickAddButton();
     }
 }
