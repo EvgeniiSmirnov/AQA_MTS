@@ -10,7 +10,7 @@ public class AddProjectTest : BaseTest
     [Test]
     public void SuccessAddProjectTest()
     {
-        NavigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+        _navigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
         ProjectsPage projectsPage = ProjectSteps.AddProjects(
             "Project",

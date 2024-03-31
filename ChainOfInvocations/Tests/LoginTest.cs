@@ -9,7 +9,7 @@ public class LoginTest : BaseTest
     [Test]
     public void SuccessfulLoginTest()
     {
-        DashboardPage dashboardPage = NavigationSteps
+        DashboardPage dashboardPage = _navigationSteps
             .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
         Assert.That(dashboardPage.IsPageOpened);
@@ -20,7 +20,7 @@ public class LoginTest : BaseTest
     {
         // Проверка
         Assert.That(
-            NavigationSteps
+            _navigationSteps
                 .IncorrectLogin("ssdd", "123123")
                 .GetErrorLabelText(),
             Is.EqualTo("Email/Login or Password is incorrect. Please try again."));

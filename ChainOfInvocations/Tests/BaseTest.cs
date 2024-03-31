@@ -13,7 +13,7 @@ public class BaseTest
 {
     protected IWebDriver Driver { get; private set; }
     protected WaitsHelper WaitsHelper { get; private set; }
-    protected NavigationSteps NavigationSteps;
+    protected NavigationSteps _navigationSteps;
     protected ProjectsSteps ProjectSteps;
 
     [SetUp]
@@ -22,7 +22,7 @@ public class BaseTest
         Driver = new Browser().Driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
 
-        NavigationSteps = new NavigationSteps(Driver);
+        _navigationSteps = new NavigationSteps(Driver);
         ProjectSteps = new ProjectsSteps(Driver);
 
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
