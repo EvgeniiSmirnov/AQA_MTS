@@ -5,7 +5,7 @@ using OpenQA.Selenium.Interactions;
 using ValueOfObjects.Helpers;
 using ValueOfObjects.Helpers.Configuration;
 
-namespace ValueOfObjects.Elements;
+namespace ChainOfInvocations.Elements;
 
 public class UIElement : IWebElement
 {
