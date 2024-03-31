@@ -14,9 +14,9 @@ public class Table
     /// </summary>
     /// <param name="webDriver"></param>
     /// <param name="by"></param>
-    public Table(IWebDriver webDriver, By by)
+    public Table(By by)
     {
-        _uiElement = new UIElement(webDriver, by);
+        _uiElement = new UIElement(by);
         _columns = new List<string>();
         _rows = new List<TableRow>();
 
