@@ -14,7 +14,10 @@ public class LoginTest : BaseTest
 
         loginPage.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
+        // принудительно переоходим на другую страницу
         //Driver.Navigate().GoToUrl("https://smirnov707070.testrail.io//index.php?/mysettings");
+        // нас вернёт на нужную страницу метод EvaluateLoadedStatus
+        //DashboardPage dashboardPage = new DashboardPage(Driver, true);
 
         DashboardPage dashboardPage = new DashboardPage(Driver);
         dashboardPage.SidebarProjectsAddButton.Click();
