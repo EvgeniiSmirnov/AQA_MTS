@@ -1,6 +1,4 @@
 ﻿using NUnit.Framework;
-using ValueOfObjects.Helpers.Configuration;
-using ValueOfObjects.Pages;
 
 namespace ValueOfObjects.Tests;
 
