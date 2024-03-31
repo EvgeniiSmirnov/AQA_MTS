@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using ChainOfInvocations.Helpers.Configuration;
-using ChainOfInvocations.Steps;
 using ChainOfInvocations.Pages;
 
 namespace ChainOfInvocations.Tests;
@@ -13,9 +12,9 @@ public class AddProjectTest : BaseTest
         _navigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
         ProjectsPage projectsPage = ProjectSteps.AddProjects(
-            "Project",
+            "Project" + new Random().Next(1,100),
             "Test",
-            true,
+            false,
             1,
             true);
 
