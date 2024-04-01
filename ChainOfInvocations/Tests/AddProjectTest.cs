@@ -9,15 +9,16 @@ public class AddProjectTest : BaseTest
     [Test]
     public void SuccessAddProjectTest()
     {
+        var projectName = $"Project {new Random().Next(1, 999)}";
         _navigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
         ProjectsPage projectsPage = ProjectSteps.AddProjects(
-            "Project" + new Random().Next(1,100),
-            "Test",
-            false,
-            1,
-            true);
+            projectName,
+            "Announcement",
+            false, // Announcement checkbox
+            new Random().Next(0, 3), // Project type
+            true); // Test Case Approvals checkbox
 
-        Assert.That(projectsPage.ProjectsTable.GetCell("Project", "Project", 0).GetLink().Enabled);
+        Assert.That(projectsPage.ProjectsTable.GetCell("Project", projectName, 0).GetLink().Enabled);
     }
 }

@@ -32,7 +32,7 @@ public class DashboardPage : BasePage
     public UIElement TitleLabel => new(Driver, TitleLabelBy);
     public Button SidebarProjectsAddButton => new(Driver, SidebarProjectsAddButtonBy);
 
-    public AddProjectPage ClickSidebarProjectsAddButton()
+    public AddProjectPage SidebarProjectsAddButtonClick()
     {
         SidebarProjectsAddButton.Click();
         return new AddProjectPage(Driver);

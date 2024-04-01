@@ -21,25 +21,30 @@ public class AddProjectPage : ProjectBasePage
     public override bool IsPageOpened() => throw new NotImplementedException();
 
     public UIElement NameInput => new(Driver, _nameInputBy);
+
     public UIElement AnnouncementInput => new(Driver, _announcementInputBy);
+
     public Checkbox ShowAnnouncementCheckbox => new(Driver, _showAnnouncementCheckboxBy);
+
     public RadioButton ProjectTypeRadio => new(Driver, _projectTypeRadioBy);
+
     public Checkbox CaseApprovalsCheckbox => new(Driver, _caseApprovalsCheckboxBy);
+
     public Button AddButton => new(Driver, _addButtonBy);
 
-    public AddProjectPage InputNameValue(string value)
+    public AddProjectPage InputProjectName(string value)
     {
         NameInput.SendKeys(value);
         return this;
     }
 
-    public AddProjectPage InputAnnouncementValue(string value)
+    public AddProjectPage InputAnnouncement(string value)
     {
         AnnouncementInput.SendKeys(value);
         return this;
     }
 
-    public AddProjectPage CheckShowAnnouncementCheckbox(bool value)
+    public AddProjectPage SetCheckboxShowAnnouncement(bool value)
     {
         ShowAnnouncementCheckbox.UseCheckbox(value);
         return this;
@@ -51,19 +56,19 @@ public class AddProjectPage : ProjectBasePage
         return this;
     }
 
-    public AddProjectPage ChooseProjectType(int index)
+    public AddProjectPage SetProjectType(int index)
     {
         ProjectTypeRadio.SelectByIndex(index);
         return this;
     }
 
-    public AddProjectPage CheckCaseApprovalsCheckbox(bool value)
+    public AddProjectPage SetCheckboxTestCaseApprovals(bool value)
     {
         CaseApprovalsCheckbox.UseCheckbox(value);
         return this;
     }
 
-    public ProjectsPage ClickAddButton()
+    public ProjectsPage MainAddButtonClick()
     {
         AddButton.Click();
         return new ProjectsPage(Driver);

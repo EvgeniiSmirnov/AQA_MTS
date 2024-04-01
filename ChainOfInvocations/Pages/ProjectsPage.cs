@@ -17,7 +17,6 @@ public class ProjectsPage : BasePage
     private static readonly By AddProjectButtonBy = By.XPath("//*[contains(text(), 'Add Project')]");
     private static readonly By ProjectsTableBy = By.CssSelector("table.grid");
 
-
     // Инициализация класса
     public ProjectsPage(IWebDriver driver) : base(driver)
     {
