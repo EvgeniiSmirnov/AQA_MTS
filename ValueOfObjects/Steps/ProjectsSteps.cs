@@ -19,9 +19,4 @@ public class ProjectSteps(IWebDriver driver) : BaseSteps(driver)
 
         return new ProjectsPage(Driver);
     }
-
-    internal object GetCell(string v1, string projectName, string v2)
-    {
-        throw new NotImplementedException();
-    }
 }
