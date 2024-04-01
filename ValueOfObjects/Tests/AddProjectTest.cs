@@ -1,7 +1,5 @@
 ﻿using NUnit.Framework;
 using ValueOfObjects.Models;
-using ValueOfObjects.Pages.ProjectPages;
-using ValueOfObjects.Steps;
 
 namespace ValueOfObjects.Tests;
 
