@@ -7,7 +7,7 @@ namespace ChainOfInvocations.Tests;
 public class AddProjectTest : BaseTest
 {
     [Test]
-    public void SuccessAddProjectTest()
+    public void AddProjectTask1Test()
     {
         var projectName = $"Project {new Random().Next(1, 999)}";
         NavigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
