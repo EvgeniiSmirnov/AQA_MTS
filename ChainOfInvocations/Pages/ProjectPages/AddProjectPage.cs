@@ -7,12 +7,12 @@ public class AddProjectPage : ProjectBasePage
 {
     private static string END_POINT = "index.php?/admin/projects/add";
 
-    private static readonly By _nameInputBy = By.Id("name");
-    private static readonly By _announcementInputBy = By.Id("announcement_display");
-    private static readonly By _showAnnouncementCheckboxBy = By.Id("show_announcement");
-    private static readonly By _projectTypeRadioBy = By.Name("suite_mode");
-    private static readonly By _caseApprovalsCheckboxBy = By.Id("case_statuses_enabled");
-    private static readonly By _addButtonBy = By.Id("accept");
+    private static readonly By ProjectNameBy = By.Id("name");
+    private static readonly By AnnouncementBy = By.Id("announcement_display");
+    private static readonly By AnnouncementCheckboxBy = By.Id("show_announcement");
+    private static readonly By ProjectTypeRadioButton = By.Name("suite_mode");
+    private static readonly By TestApprovalsCheckboxBy = By.Id("case_statuses_enabled");
+    private static readonly By AddButtonBy = By.Id("accept");
 
     public AddProjectPage(IWebDriver driver) : base(driver) { }
     public AddProjectPage(IWebDriver driver, bool openByUrl) : base(driver, openByUrl) { }
@@ -20,17 +20,17 @@ public class AddProjectPage : ProjectBasePage
     protected override string GetEndpoint() => END_POINT;
     public override bool IsPageOpened() => throw new NotImplementedException();
 
-    public UIElement NameInput => new(Driver, _nameInputBy);
+    public UIElement NameInput => new(Driver, ProjectNameBy);
 
-    public UIElement AnnouncementInput => new(Driver, _announcementInputBy);
+    public UIElement AnnouncementInput => new(Driver, AnnouncementBy);
 
-    public Checkbox ShowAnnouncementCheckbox => new(Driver, _showAnnouncementCheckboxBy);
+    public Checkbox ShowAnnouncementCheckbox => new(Driver, AnnouncementCheckboxBy);
 
-    public RadioButton ProjectTypeRadio => new(Driver, _projectTypeRadioBy);
+    public RadioButton ProjectTypeRadio => new(Driver, ProjectTypeRadioButton);
 
-    public Checkbox CaseApprovalsCheckbox => new(Driver, _caseApprovalsCheckboxBy);
+    public Checkbox CaseApprovalsCheckbox => new(Driver, TestApprovalsCheckboxBy);
 
-    public Button AddButton => new(Driver, _addButtonBy);
+    public Button AddButton => new(Driver, AddButtonBy);
 
     public AddProjectPage InputProjectName(string value)
     {
