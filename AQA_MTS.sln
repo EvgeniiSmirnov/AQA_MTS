@@ -5,15 +5,17 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainOfInvocations", "ChainOfInvocations\ChainOfInvocations.csproj", "{AF886A3C-0530-4582-9201-A3AFA195136B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadableComponent", "LoadableComponent\LoadableComponent.csproj", "{2652AA94-E2B3-4908-8AC3-5359BCC2AEBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadableComponent", "LoadableComponent\LoadableComponent.csproj", "{2652AA94-E2B3-4908-8AC3-5359BCC2AEBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueOfObjects", "ValueOfObjects\ValueOfObjects.csproj", "{E1CE0333-8924-4ADF-B1C1-5B93A477CE7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueOfObjects", "ValueOfObjects\ValueOfObjects.csproj", "{E1CE0333-8924-4ADF-B1C1-5B93A477CE7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeSingleton", "NativeSingleton\NativeSingleton.csproj", "{898AD641-B172-4BCF-B820-21AC5ED34D89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NativeSingleton", "NativeSingleton\NativeSingleton.csproj", "{898AD641-B172-4BCF-B820-21AC5ED34D89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuiderPattern", "BuiderPattern\BuiderPattern.csproj", "{74B14226-87FE-48AD-816C-AB7E311C5527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuiderPattern", "BuiderPattern\BuiderPattern.csproj", "{74B14226-87FE-48AD-816C-AB7E311C5527}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConceptBuilderPattern", "ConceptBuilderPattern\ConceptBuilderPattern.csproj", "{D7334DC6-2F18-43BF-93FE-B7AF51F3658B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptBuilderPattern", "ConceptBuilderPattern\ConceptBuilderPattern.csproj", "{D7334DC6-2F18-43BF-93FE-B7AF51F3658B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderHomework", "BuilderHomework\BuilderHomework.csproj", "{E00DCD02-B795-4848-895F-3A1F0C4C3B56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D7334DC6-2F18-43BF-93FE-B7AF51F3658B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7334DC6-2F18-43BF-93FE-B7AF51F3658B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7334DC6-2F18-43BF-93FE-B7AF51F3658B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
