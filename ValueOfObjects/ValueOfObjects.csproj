@@ -11,18 +11,32 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="Resources\**" />
-		<EmbeddedResource Remove="Resources\**" />
-		<None Remove="Resources\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<None Remove="appsettings.json" />
+		<None Remove="Resources\project_en.json" />
+		<None Remove="Resources\project_ru.json" />
+		<None Remove="Resources\testList.json" />
+		<None Remove="Resources\testObject1.json" />
+		<None Remove="Resources\testObject2.json" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="appsettings.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\project_en.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\project_ru.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\testList.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\testObject2.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\testObject1.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
 

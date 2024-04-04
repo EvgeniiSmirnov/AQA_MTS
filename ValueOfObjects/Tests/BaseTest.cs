@@ -1,6 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.Resources;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using ValueOfObjects.Core;
+using ValueOfObjects.Helpers;
 using ValueOfObjects.Helpers.Configuration;
 using ValueOfObjects.Models;
 using ValueOfObjects.Steps;
@@ -17,6 +19,16 @@ public class BaseTest
     protected ProjectSteps _projectSteps;
 
     protected User Admin { get; private set; }
+
+    protected Project project;
+    protected Project project2;
+
+    [OneTimeSetUp]
+    public void OneTimeSetup()
+    {
+        project = JsonHelper.ProjectFromJson(@"Resources\project_en.json");
+        project2 = JsonHelper.ProjectFromJson(@"Resources\project_ru.json");
+    }
 
     [SetUp]
     public void Setup()
