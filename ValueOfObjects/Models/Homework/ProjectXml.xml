@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<id>20</id>
+	<name>Project 830</name>
+	<announcement>Use the multi-byte RSS capacitor, then you can transmit the neural interface!</announcement>
+	<show_announcement>false</show_announcement>
+	<is_completed>false</is_completed>
+	<completed_on/>
+	<suite_mode>2</suite_mode>
+	<default_role_id/>
+	<case_statuses_enabled>true</case_statuses_enabled>
+	<url>https://smirnov707070.testrail.io/index.php?/projects/overview/20</url>
+	<users>
+		<user_id>2</user_id>
+		<global_role_id>3</global_role_id>
+		<global_role>Tester</global_role>
+		<project_role_id>3</project_role_id>
+		<project_role>Tester</project_role>
+	</users>
+	<groups>
+		<id>1</id>
+		<role_id>3</role_id>
+		<role>Tester</role>
+	</groups>
+</root>

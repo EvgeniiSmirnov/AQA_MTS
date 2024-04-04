@@ -12,6 +12,10 @@
 
 	<ItemGroup>
 		<None Remove="appsettings.json" />
+		<None Remove="Models\Homework\MilestoneJson.json" />
+		<None Remove="Models\Homework\MilestoneXml.xml" />
+		<None Remove="Models\Homework\ProjectXml.xml" />
+		<None Remove="Models\ProjectJson.json" />
 		<None Remove="Resources\project_en.json" />
 		<None Remove="Resources\project_ru.json" />
 		<None Remove="Resources\testList.json" />
@@ -22,6 +26,18 @@
 	<ItemGroup>
 		<Content Include="appsettings.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Models\Homework\MilestoneJson.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Models\Homework\MilestoneXml.xml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Models\Homework\ProjectXml.xml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Models\Homework\ProjectJson.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 		<Content Include="Resources\project_en.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>

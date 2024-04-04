@@ -1,0 +1,28 @@
+{
+  "id": 20,
+  "name": "Project 830",
+  "announcement": "Use the multi-byte RSS capacitor, then you can transmit the neural interface!",
+  "show_announcement": false,
+  "is_completed": false,
+  "completed_on": null,
+  "suite_mode": 2,
+  "default_role_id": null,
+  "case_statuses_enabled": true,
+  "url": "https://smirnov707070.testrail.io/index.php?/projects/overview/20",
+  "users": [
+    {
+      "user_id": 2,
+      "global_role_id": 3,
+      "global_role": "Tester",
+      "project_role_id": 3,
+      "project_role": "Tester"
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "role_id": 3,
+      "role": "Tester"
+    }
+  ]
+}
