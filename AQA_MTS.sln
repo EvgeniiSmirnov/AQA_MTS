@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuiderPattern", "BuiderPatt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptBuilderPattern", "ConceptBuilderPattern\ConceptBuilderPattern.csproj", "{D7334DC6-2F18-43BF-93FE-B7AF51F3658B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderHomework", "BuilderHomework\BuilderHomework.csproj", "{E00DCD02-B795-4848-895F-3A1F0C4C3B56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuilderHomework", "BuilderHomework\BuilderHomework.csproj", "{E00DCD02-B795-4848-895F-3A1F0C4C3B56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestSharpApi", "RestSharpApi\RestSharpApi.csproj", "{7C52811B-0282-4F00-AEF2-C21C31A050F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E00DCD02-B795-4848-895F-3A1F0C4C3B56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C52811B-0282-4F00-AEF2-C21C31A050F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C52811B-0282-4F00-AEF2-C21C31A050F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C52811B-0282-4F00-AEF2-C21C31A050F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C52811B-0282-4F00-AEF2-C21C31A050F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
