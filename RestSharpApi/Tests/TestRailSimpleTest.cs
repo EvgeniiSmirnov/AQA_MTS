@@ -3,6 +3,7 @@ using RestSharp.Authenticators;
 using RestSharp;
 using System.Net;
 using System.Text.Json;
+using RestSharpApi.Models;
 
 namespace RestSharpApi.Tests;
 
@@ -10,7 +11,7 @@ public class TestRailSimpleTest
 {
     private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-    private const string BaseRestUri = "https://smirnov707070.testrail.io/";
+    private const string BaseRestUri = "https://smirnov777.testrail.io/";
 
     [Test]
     public void SimpleGetTest()
@@ -101,6 +102,52 @@ public class TestRailSimpleTest
 
         // Получаем значение поля "id"
         int id = responseObject!.id;
+
+        // Используем значение "id" по своему усмотрению
+        Logger.Info($"Значение поля 'id': {id}");
+    }
+
+    [Test]
+    public void AdvancedPostTest()
+    {
+        const string endpoint = "index.php?/api/v2/add_project";
+
+        Project expectedProject = new Project
+        {
+            Name = "Project 124",
+            Announcement = "Test project description",
+            IsShowAnnouncement = true,
+            SuiteMode = 2
+        };
+
+        var options = new RestClientOptions(BaseRestUri)
+        {
+            Authenticator = new HttpBasicAuthenticator("mbural66@gmail.com", "Americana#1978")
+        };
+
+        // Setup Rest Client
+        var client = new RestClient(options);
+
+        // Setup Request
+        var request = new RestRequest(endpoint).AddJsonBody(expectedProject);
+
+        // Execute Request
+        var response = client.ExecutePost<Project>(request);
+        Project actualProject = response.Data;
+
+        Logger.Info(actualProject);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+
+            Assert.That(actualProject.Name, Is.EqualTo(expectedProject.Name));
+
+            Assert.That(actualProject.Equals(expectedProject));
+        });
+
+        // Получаем значение поля "id"
+        int id = actualProject.Id;
 
         // Используем значение "id" по своему усмотрению
         Logger.Info($"Значение поля 'id': {id}");
