@@ -9,7 +9,6 @@ public class ProjectTest : BaseApiTest
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
     // для связанных тестов выносим сущность в класс, чтобы сюда подтягивалась изменния после каждго теста
     private Project _project = null;
-    //private static Faker<Project> _faker = new ProjectFaker();
 
     [Test]
     [Order(1)]

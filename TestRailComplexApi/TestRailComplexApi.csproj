@@ -51,8 +51,4 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Fakers\" />
-  </ItemGroup>
-
 </Project>

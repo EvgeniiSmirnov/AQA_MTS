@@ -60,4 +60,26 @@ public class SchemaTest
             Assert.That(responseData.IsValid(schema));
         }
     }
+
+    [Test]
+    public void SchemaTest1()
+    {
+        string schemaJson = @"{
+            'description': 'A person',
+            'type': 'object',
+            'properties':
+                {
+                    'name': {'type':'string'},
+                    'hobbies': {
+                        'type': 'array',
+                        'items': {'type':'string'}
+                    }
+                }
+        }";
+
+        JsonSchema schema = JsonSchema.Parse(schemaJson);
+
+        JObject person = JObject.Parse(@"{'name': 'James','hobbies': ['.NET', 'Blogging', 'Reading', 'Xbox', 'LOLCATS']}");
+        Assert.That(person.IsValid(schema));
+    }
 }
