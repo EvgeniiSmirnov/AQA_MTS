@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -34,9 +34,10 @@
 	  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
 	  <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15" />
 	  <PackageReference Include="NLog" Version="5.2.8" />
-	  <PackageReference Include="NUnit" Version="4.0.1" />
+	  <PackageReference Include="Npgsql" Version="8.0.2" />
+	  <PackageReference Include="NUnit" Version="4.1.0" />
 	  <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-	  <PackageReference Include="NUnit.Analyzers" Version="4.0.1">
+	  <PackageReference Include="NUnit.Analyzers" Version="4.1.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
@@ -49,6 +50,10 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tests\" />
   </ItemGroup>
 
 </Project>
