@@ -1,4 +1,5 @@
 ﻿using DB_Npgsql.Connector;
+using DB_Npgsql.Models;
 using DB_Npgsql.Services;
 using NLog;
 
@@ -22,9 +23,45 @@ public class DatabaseTest
     {
         _logger.Info("Started GetAllCustomersTest");
 
-        Assert.That(_customerService!.GetAllCustomers().Count, Is.EqualTo(5));
+        Assert.That(_customerService!.GetAllCustomers().Count, Is.EqualTo(6));
 
         _logger.Info("Completed GetAllCustomersTest");
+    }
+
+    [Test]
+    public void AddCustomerTest()
+    {
+        _logger.Info("Started AddCustomerTest");
+
+        var customer = new Customer()
+        {
+            Firstname = "Test",
+            Lastname = "Testov",
+            Email = "test@test.com",
+            Age = 20
+        };
+
+        Assert.That(_customerService!.AddCustomer(customer), Is.EqualTo(1));
+
+        _logger.Info("Completed AddCustomerTest");
+    }
+
+    [Test]
+    public void DeleteCustomerTest()
+    {
+        _logger.Info("Started DeleteCustomerTest");
+
+        var customer = new Customer()
+        {
+            Firstname = "Test",
+            Lastname = "Testov",
+            Email = "test@test.com",
+            Age = 20
+        };
+
+        Assert.That(_customerService!.DeleteCustomer(customer), Is.EqualTo(1));
+
+        _logger.Info("Completed DeleteCustomerTest");
     }
 
     [OneTimeTearDown]

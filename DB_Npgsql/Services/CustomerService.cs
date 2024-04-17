@@ -39,4 +39,30 @@ public class CustomerService
 
         return customers;
     }
+
+    public int AddCustomer(Customer customer)
+    {
+        var cmd = new NpgsqlCommand(
+                "insert into \"customers\" (\"firstname\", \"lastname\", \"email\", \"age\") " +
+                $"values ('{customer.Firstname}', '{customer.Lastname}', '{customer.Email}', {customer.Age});",
+                _connection);
+
+        return cmd.ExecuteNonQuery();
+    }
+
+    public int DeleteCustomer(Customer customer)
+    {
+        using var cmd = new NpgsqlCommand(
+            "delete from \"customers\" where \"firstname\" = $1 and \"lastname\" = $2;",
+            _connection)
+        {
+            Parameters =
+            {
+                new(){Value = customer.Firstname},
+                new(){Value = customer.Lastname},
+            }
+        };
+
+        return cmd.ExecuteNonQuery();
+    }
 }

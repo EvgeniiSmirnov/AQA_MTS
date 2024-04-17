@@ -7,6 +7,7 @@ public class DBConnector
 {
     public DBConnector()
     {
+        // dbc строка с параметрами для коннекта к БД
         var connectionString =
             $"Host={Configurator.DbSettings.DB_Server};" +
             $"Port={Configurator.DbSettings.DB_Port};" +
