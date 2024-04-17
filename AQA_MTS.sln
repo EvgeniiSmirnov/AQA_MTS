@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestSharpApi", "RestSharpAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRailComplexApi", "TestRailComplexApi\TestRailComplexApi.csproj", "{69A707CF-F704-4BBC-8C6E-BAA7AC6B3D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_Npgsql", "DB_Npgsql\DB_Npgsql.csproj", "{642A2F4D-3E03-47F7-B04D-6810E410D975}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB_Npgsql", "DB_Npgsql\DB_Npgsql.csproj", "{642A2F4D-3E03-47F7-B04D-6810E410D975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_EFCore", "DB_EFCore\DB_EFCore.csproj", "{D6223473-C2FC-4BA7-98D7-40AEABC50087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{642A2F4D-3E03-47F7-B04D-6810E410D975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{642A2F4D-3E03-47F7-B04D-6810E410D975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{642A2F4D-3E03-47F7-B04D-6810E410D975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6223473-C2FC-4BA7-98D7-40AEABC50087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6223473-C2FC-4BA7-98D7-40AEABC50087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6223473-C2FC-4BA7-98D7-40AEABC50087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6223473-C2FC-4BA7-98D7-40AEABC50087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
