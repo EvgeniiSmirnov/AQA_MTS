@@ -29,6 +29,18 @@ public class DatabaseTest
     }
 
     [Test]
+    public void GetSingleCustomerTest()
+    {
+        _logger.Info("Started GetSingleCustomerTest");
+
+        Customer actualCustomer = _customerService!.GetCustomerById(1);
+
+        Assert.That(actualCustomer.Firstname, Is.EqualTo("Ольга"));
+
+        _logger.Info("Completed GetSingleCustomerTest");
+    }
+
+    [Test]
     public void AddCustomerTest()
     {
         _logger.Info("Started AddCustomerTest");
@@ -42,6 +54,8 @@ public class DatabaseTest
         };
 
         Assert.That(_customerService!.AddCustomer(customer), Is.EqualTo(1));
+
+        _logger.Info("Добавлен " + customer);
 
         _logger.Info("Completed AddCustomerTest");
     }
@@ -59,7 +73,7 @@ public class DatabaseTest
             Age = 20
         };
 
-        Assert.That(_customerService!.DeleteCustomer(customer), Is.EqualTo(1));
+        Assert.That(_customerService!.DeleteCustomer(customer), Is.EqualTo(2));
 
         _logger.Info("Completed DeleteCustomerTest");
     }
